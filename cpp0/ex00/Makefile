@@ -6,19 +6,19 @@
 #    By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/05 11:33:41 by jecaudal          #+#    #+#              #
-#    Updated: 2020/10/05 11:33:53 by jecaudal         ###   ########.fr        #
+#    Updated: 2020/10/05 12:06:57 by jecaudal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:	megaphone
+NAME		=	megaphone
 
-SRCS		:	megaphone.cpp
+SRCS		=	megaphone.cpp
 
 CC			=	clang++
 
-OBJS		=	$(SRC:.cpp=.o)
+OBJS		=	$(SRCS:.cpp=.o)
 
-CFLAGS		+=	-Wall -Wextra -Werro
+CFLAGS		+=	-Wall -Wextra -Werror
 
 all			:	$(NAME)
 
