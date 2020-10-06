@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/05 14:19:04 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/06 04:31:45 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/10/06 05:27:40 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,20 +69,31 @@ void	Contact::add_contact(void)
 	std::cin >> this->underware_color;
 	std::cout << "Darkest secret :" << std::endl << "> ";
 	std::cin >> this->darkest_secret;
-	printf("%s correctement ajoute dans l'annuaire.\n", this->first_name);
+	std::cout << this->first_name << "correctement ajoute dans l'annuaire." << std::endl;
 }
 
 void	Contact::print_all(void)
 {
-	printf("first name : [%s]\n", this->first_name);
-	printf("last name : [%s]\n", this->last_name);
-	printf("nickname name : [%s]\n", this->nickname);
-	printf("login : [%s]\n", this->login);
-	printf("postal address : [%s]\n", this->postal_address);
-	printf("email address : [%s]\n", this->email_address);
-	printf("phone number : [%s]\n", this->phone_number);
-	printf("birthday date : [%s]\n", this->birthday_date);
-	printf("favorite meal : [%s]\n", this->favorite_meal);
-	printf("underware color : [%s]\n", this->underware_color);
-	printf("darkest secret : [%s]\n", this->darkest_secret);
+	std::cout << "first name : ";
+	std::cout << this->first_name << std::endl;
+	std::cout << "last name : ";
+	std::cout << this->last_name << std::endl;
+	std::cout << "nickname : ";
+	std::cout << this->nickname << std::endl;
+	std::cout << "login : ";
+	std::cout << this->login << std::endl;
+	std::cout << "postal address : ";
+	std::cout << this->postal_address << std::endl;
+	std::cout << "email address : ";
+	std::cout << this->email_address << std::endl;
+	std::cout << "phone number : ";
+	std::cout << this->phone_number << std::endl;
+	std::cout << "birthday date : ";
+	std::cout << this->birthday_date << std::endl;
+	std::cout << "favorite meal : ";
+	std::cout << this->favorite_meal << std::endl;
+	std::cout << "underware color : ";
+	std::cout << this->underware_color << std::endl;
+	std::cout << "darkest secret : ";
+	std::cout << this->darkest_secret << std::endl;
 }
