@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ex01.cpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/06 10:24:58 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/06 10:28:34 by jecaudal         ###   ########.fr       */
+/*   Created: 2020/10/06 10:29:29 by jecaudal          #+#    #+#             */
+/*   Updated: 2020/10/06 15:07:50 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "Zombie.hpp"
+#include "ZombieEvent.hpp"
 
-void	memoryLeak()
-{
-	std::string*	panthere = new std::string("String panthere");
-
-	std::cout << *panthere << std::endl;
-
-	delete panthere;
-}
-
-/*
 int		main()
 {
-	memoryLeak();
+	Zombie *z1;
+	Zombie	z2("pierre", "Vener");
+	ZombieEvent master;
+
+	master.setZombieType("Mort-vivant");
+	z1 = master.newZombie("Nicolas");
+	master.randomChump();
+	z2.advert();
+
+	delete z1;
 	return (0);
 }
-*/

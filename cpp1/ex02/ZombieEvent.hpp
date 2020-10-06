@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Pony.hpp                                           :+:      :+:    :+:   */
+/*   ZombieEvent.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/06 08:05:53 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/06 10:31:04 by jecaudal         ###   ########.fr       */
+/*   Created: 2020/10/06 10:44:40 by jecaudal          #+#    #+#             */
+/*   Updated: 2020/10/06 15:02:22 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PONY_HPP
-# define PONY_HPP
+#ifndef ZOMBIEEVENT_HPP
+# define ZOMBIEEVENT_HPP
 
 #include <iostream>
-#include <string>
+#include "Zombie.hpp"
 
-class	Pony
+class	ZombieEvent
 {
-public:
-	int			age;
-	std::string	name;
-	std::string	color;
-	int			weight;
-	bool		is_in_heap;
-	std::string	localisation;
+public:	
+	Zombie	*newZombie(std::string name);
+	void	randomChump(void);
+	void	setZombieType(std::string type_name);
 
-	Pony(int c_age, std::string c_color, int c_weight, std::string c_loc, std::string name);
-	~Pony(void);
-	void	jump(void);
-	void	change_color(std::string color);
-	void	presentation(void);
-	void	travel(std::string destination);
-
+private:
+	std::string type;
 };
+
+std::string	ran_name(void);
 
 #endif
