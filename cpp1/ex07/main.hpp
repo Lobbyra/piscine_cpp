@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ex01.cpp                                           :+:      :+:    :+:   */
+/*   main.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/06 10:24:58 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/07 13:05:14 by jecaudal         ###   ########.fr       */
+/*   Created: 2020/10/07 11:13:11 by jecaudal          #+#    #+#             */
+/*   Updated: 2020/10/07 11:40:52 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef MAIN_HPP
+# define MAIN_HPP
 
-void	memoryLeak()
-{
-	std::string*	panthere = new std::string("String panthere");
+# include <iostream>
+# include <fstream>
+# include <string>
 
-	std::cout << *panthere << std::endl;
+int		replace(std::string path, std::string s1, std::string s2);
 
-	delete panthere;
-}
+#endif
