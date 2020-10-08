@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/08 05:07:07 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/08 10:35:09 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/10/08 10:54:32 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ public:
 private:
 
 	int raw;
-	int const static byte;
+	int const static byte = 8;
 
 };
 
