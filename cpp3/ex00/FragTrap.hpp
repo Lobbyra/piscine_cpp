@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 05:16:25 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/09 05:37:32 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/10/09 19:44:23 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define FRAGTRAP_HPP
 
 # include <iostream>
+# include <sstream>
+# include "FragTrapMsg.hpp"
 
 class	FragTrap
 {
@@ -25,10 +27,15 @@ public:
 	FragTrap &operator=(FragTrap const &src);
 	~FragTrap();
 
-	void	rangedAttack(std::string const &target);
-	void	meleeAttack(std::string const &target);
+	int		getHitPoints(void);
+	int		getEnergyPoints(void);
+	void	setName(std::string name);
 	void	takeDamage(unsigned int amount);
 	void	beRepaired(unsigned int amount);
+	void	meleeAttack(std::string const &target) const;
+	void	rangedAttack(std::string const &target) const;
+	int		vaulthunter_dot_exe(std::string const &target);
+	std::string getValues(void) const;
 
 protected:
 
@@ -48,6 +55,20 @@ private:
 
 };
 
-std::ostream	&operator<<(std::ostream const &o, FragTrap const &i);
+std::ostream	&operator<<(std::ostream &o, FragTrap const &i);
+
+/*
+**	CONST VALUES
+**	Bellow are const of a new FragTrap init.
+*/
+
+# define CONST_LEVEL 1
+# define CONST_HIT_POINTS 100
+# define CONST_ENERGY_POINTS 100
+# define CONST_MAX_HIT_POINTS 100
+# define CONST_MAX_ENERGY_POINTS 100
+# define CONST_MELEE_ATTACK_DAMAGE 30
+# define CONST_RANGED_ATTACK_DAMAGE 20
+# define CONST_ARMOR_DAMAGE_REDUCTION 5
 
 #endif
