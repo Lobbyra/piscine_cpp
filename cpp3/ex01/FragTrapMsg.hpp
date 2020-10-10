@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 13:08:30 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/10 18:04:00 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/10/10 18:03:50 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,6 @@
 
 #ifndef FRAGTRAPMSG_HPP
 # define FRAGTRAPMSG_HPP
-
-/*
-**	# Global printing format
-*/
-
-# define COLOR_RESET "\033[0m"
-# define COLOR_RED "\033[1;31m"
-# define COLOR_BLUE "\033[1;34m"
-# define COLOR_GREEN "\033[1;32m"
-# define COLOR_WHITE "\033[1;37m"
 
 /*
 **	# MSG for actions
@@ -41,7 +31,7 @@
 	" viens de sortir de sa boite !"
 
 # define MSG_DESTRUCTOR								\
-	"Un " COLOR_BLUE "FR4G-TP" COLOR_RESET " est rerentré dans sa boite !"
+	COLOR_BLUE_("FR4G-TP ") << COLOR_BLUE_(this->name) << " *s'arrête et tombe*"
 
 # define MSG_RANGED_ATTACK									\
 	COLOR_BLUE "FR4G-TP " << this->name << COLOR_RESET << 	\
