@@ -1,0 +1,66 @@
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/10/10 19:03:00 by jecaudal          #+#    #+#             */
+/*   Updated: 2020/10/12 17:25:19 by jecaudal         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
+
+#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
+#include "GlobalTrap.hpp"
+
+class	ClapTrap : public FragTrap, public ScavTrap
+{
+public:
+
+	ClapTrap(void);
+	ClapTrap(std::string name);
+	ClapTrap(ClapTrap const &src);
+	ClapTrap &operator=(ClapTrap const &src);
+	~ClapTrap();
+
+	int		getHitPoints(void);
+	int		getEnergyPoints(void);
+	void	setName(std::string name);
+	void	takeDamage(unsigned int amount);
+	void	beRepaired(unsigned int amount);
+	void	meleeAttack(std::string const &target) const;
+	void	rangedAttack(std::string const &target) const;
+	int		vaulthunter_dot_exe(std::string const &target);
+	std::string getValues(void) const;
+
+private:
+
+	std::string	type;
+	std::string	name;
+	int			level;
+	int			hit_points;
+	int			energy_points;
+	int			max_hit_points;
+	int			melee_attack_damage;
+	int			range_attack_damage;
+	int			armor_damage_reduction;
+	void		init_vars(void);
+
+};
+
+std::ostream	&operator<<(std::ostream &o, ClapTrap const &i);
+
+# define CT_CONST_LEVEL 1;
+# define CT_CONST_HIT_POINTS 100;
+# define CT_CONST_ENERGY_POINTS 50;
+# define CT_CONST_MAX_HIT_POINTS 50;
+# define CT_CONST_MELEE_ATTACK_DAMAGE 30;
+# define CT_CONST_RANGED_ATTACK_DAMAGE 15;
+# define CT_CONST_ARMOR_DAMAGE_REDUCTION 4;
+
+#endif
