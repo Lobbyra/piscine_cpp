@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/10 06:18:51 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/12 18:22:48 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/10/13 12:44:22 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,15 @@ void	ScavTrap::init_vars(void)
 
 ScavTrap::ScavTrap(void) : name("default")
 {
-	std::cout << SC_MSG_CONSTRUCTOR_STRING << std::endl;
 	init_vars();
+	std::cout << SC_MSG_CONSTRUCTOR_STRING << std::endl;
 	return ;
 }
 
 ScavTrap::ScavTrap(std::string c_name) : name(c_name)
 {
-	std::cout << SC_MSG_CONSTRUCTOR_STRING << std::endl;
 	init_vars();
+	std::cout << SC_MSG_CONSTRUCTOR_STRING << std::endl;
 	return ;
 }
 
@@ -50,16 +50,6 @@ ScavTrap::~ScavTrap(void)
 {
 	std::cout << SC_MSG_DESTRUCTOR << std::endl;
 	return ;
-}
-
-int			ScavTrap::getEnergyPoints(void)
-{
-	return (this->energy_points);
-}
-
-int			ScavTrap::getHitPoints(void)
-{
-	return (this->hit_points);
 }
 
 void		ScavTrap::setName(std::string name)
@@ -154,14 +144,56 @@ std::string	ScavTrap::getValues(void) const
 	return (ss.str());
 }
 
-ScavTrap	&ScavTrap::operator=(ScavTrap const &frag)
+std::string	ScavTrap::getName(void) const
 {
-	*this = frag;
-	return *this;
+	return (this->name);
+}
+
+int		ScavTrap::getArmordamagereduction(void) const
+{
+	return (this->armor_damage_reduction);
+}
+
+int		ScavTrap::getLevel(void) const
+{
+	return (this->level);
+}
+int		ScavTrap::getHitPoints(void) const
+{
+	return (this->hit_points);
+}
+int		ScavTrap::getEnergyPoints(void) const
+{
+	return (this->energy_points);
+}
+int		ScavTrap::getMaxhitpoint(void) const
+{
+	return (this->max_hit_points);
+}
+int		ScavTrap::getMeleeattackdamage(void) const
+{
+	return (this->melee_attack_damage);
+}
+int		ScavTrap::getRangedttackdamage(void) const
+{
+	return (this->range_attack_damage);
+}
+
+ScavTrap	&ScavTrap::operator=(ScavTrap const &src)
+{
+	this->name = src.getName();
+	this->level = src.getLevel();
+	this->hit_points = src.getHitPoints();
+	this->energy_points = src.getEnergyPoints();
+	this->max_hit_points = src.getHitPoints();
+	this->melee_attack_damage = src.getMeleeattackdamage();
+	this->range_attack_damage = src.getRangedttackdamage();
+	this->armor_damage_reduction = src.getArmordamagereduction();
+	return (*this);
 }
 
 std::ostream	&operator<<(std::ostream &o, ScavTrap const &i)
 {
 	o << i.getValues();
-	return o;
+	return (o);
 }

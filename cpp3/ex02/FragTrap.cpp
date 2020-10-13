@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 05:15:12 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/10 19:20:57 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/10/13 12:44:15 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,15 @@ void	FragTrap::init_vars(void)
 
 FragTrap::FragTrap(void) : name("default")
 {
-	std::cout << MSG_CONSTRUCTOR_STRING << std::endl;
 	init_vars();
+	std::cout << MSG_CONSTRUCTOR_STRING << std::endl;
 	return ;
 }
 
 FragTrap::FragTrap(std::string c_name) : name(c_name)
 {
-	std::cout << MSG_CONSTRUCTOR_STRING << std::endl;
 	init_vars();
+	std::cout << MSG_CONSTRUCTOR_STRING << std::endl;
 	return ;
 }
 
@@ -49,16 +49,6 @@ FragTrap::~FragTrap(void)
 {
 	std::cout << MSG_DESTRUCTOR << std::endl;
 	return ;
-}
-
-int			FragTrap::getEnergyPoints(void)
-{
-	return (this->energy_points);
-}
-
-int			FragTrap::getHitPoints(void)
-{
-	return (this->hit_points);
 }
 
 void		FragTrap::setName(std::string name)
@@ -157,14 +147,56 @@ std::string	FragTrap::getValues(void) const
 	return (ss.str());
 }
 
-FragTrap	&FragTrap::operator=(FragTrap const &frag)
+std::string	FragTrap::getName(void) const
 {
-	*this = frag;
-	return *this;
+	return (this->name);
+}
+
+int		FragTrap::getArmordamagereduction(void) const
+{
+	return (this->armor_damage_reduction);
+}
+
+int		FragTrap::getLevel(void) const
+{
+	return (this->level);
+}
+int		FragTrap::getHitPoints(void) const
+{
+	return (this->hit_points);
+}
+int		FragTrap::getEnergyPoints(void) const
+{
+	return (this->energy_points);
+}
+int		FragTrap::getMaxhitpoint(void) const
+{
+	return (this->max_hit_points);
+}
+int		FragTrap::getMeleeattackdamage(void) const
+{
+	return (this->melee_attack_damage);
+}
+int		FragTrap::getRangedttackdamage(void) const
+{
+	return (this->range_attack_damage);
+}
+
+FragTrap	&FragTrap::operator=(FragTrap const &src)
+{
+	this->name = src.getName();
+	this->level = src.getLevel();
+	this->hit_points = src.getHitPoints();
+	this->energy_points = src.getEnergyPoints();
+	this->max_hit_points = src.getHitPoints();
+	this->melee_attack_damage = src.getMeleeattackdamage();
+	this->range_attack_damage = src.getRangedttackdamage();
+	this->armor_damage_reduction = src.getArmordamagereduction();
+	return (*this);
 }
 
 std::ostream	&operator<<(std::ostream &o, FragTrap const &i)
 {
 	o << i.getValues();
-	return o;
+	return (o);
 }

@@ -28,14 +28,20 @@ public:
 	ClapTrap &operator=(ClapTrap const &src);
 	~ClapTrap();
 
-	int		getHitPoints(void);
-	int		getEnergyPoints(void);
+	std::string getName(void) const;
+	int		getArmordamagereduction(void) const;
+	int		getLevel(void) const;
+	int		getHitPoints(void) const;
+	int		getEnergyPoints(void) const;
+	int		getMaxhitpoint(void) const;
+	int		getMeleeattackdamage(void) const;
+	int		getRangedttackdamage(void) const;
+
 	void	setName(std::string name);
 	void	takeDamage(unsigned int amount);
 	void	beRepaired(unsigned int amount);
 	void	meleeAttack(std::string const &target) const;
 	void	rangedAttack(std::string const &target) const;
-	int		vaulthunter_dot_exe(std::string const &target);
 	std::string getValues(void) const;
 
 private:

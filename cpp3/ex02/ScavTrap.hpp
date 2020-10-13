@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/10 05:59:10 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/12 17:31:33 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/10/13 12:23:27 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,15 @@ public:
 	ScavTrap &operator=(ScavTrap const &src);
 	~ScavTrap();
 
-	int		getHitPoints(void);
-	int		getEnergyPoints(void);
+	std::string getName(void) const;
+	int		getArmordamagereduction(void) const;
+	int		getLevel(void) const;
+	int		getHitPoints(void) const;
+	int		getEnergyPoints(void) const;
+	int		getMaxhitpoint(void) const;
+	int		getMeleeattackdamage(void) const;
+	int		getRangedttackdamage(void) const;
+
 	void	setName(std::string name);
 	void	takeDamage(unsigned int amount);
 	void	beRepaired(unsigned int amount);

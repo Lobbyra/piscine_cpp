@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 13:08:30 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/10 19:34:09 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/10/13 13:00:35 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 	" viens de sortir de sa boite !"
 
 # define SC_MSG_DESTRUCTOR								\
-	COLOR_BLUE_(this->type) << COLOR_BLUE_(this->name) << " *s'arrête et tombe*"
+	COLOR_BLUE_(this->type) << " " << COLOR_BLUE_(this->name) << " *s'arrête et tombe*"
 
 # define SC_MSG_RANGED_ATTACK									\
 	COLOR_BLUE_(this->type) << " " << this->name << COLOR_RESET << 	\
@@ -42,7 +42,7 @@
 # define SC_MSG_MELEE_ATTACK									\
 	COLOR_BLUE_(this->type) << " " << this->name << COLOR_RESET << 	\
 	" attaque " << COLOR_BLUE << target << COLOR_RESET <<	\
-	" au corp à corps, causant " <<							\
+	" au corps à corps, causant " <<							\
 	COLOR_RED << "17" << COLOR_RESET " points de degats !"
 
 # define SC_MSG_TAKE_DAMAGE											\
@@ -65,7 +65,7 @@
 */
 
 # define MSG_CHALL_ANNOUNCE			\
-	COLOR_BLUE_(this->type) << this->name <<					\
+	COLOR_BLUE_(this->type) << " " << this->name <<						\
 	" lance un challenge contre " COLOR_BLUE << target << COLOR_RESET	\
 	" !"
 
@@ -82,7 +82,7 @@
 	COLOR_BLUE_(this->type) << "> J'ai gagné !"
 
 # define MSG_CHALL_RPC_SCAV_LOOSE	\
-	COLOR_BLUE << target << "> J'ai gagné !"
+	COLOR_BLUE_(target) << " > J'ai gagné !"
 
 # define MSG_CHALL_COIN			\
 	COLOR_BLUE_(this->type) <<											\
