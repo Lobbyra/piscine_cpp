@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 18:43:48 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/13 18:46:45 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/10/13 18:54:04 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -216,6 +216,8 @@ void	supertrap_demo()
 	boris.takeDamage(NT_CONST_RANGED_ATTACK_DAMAGE);
 	boris.ninjaShoebox(adrieng);
 	boris.vaulthunter_dot_exe("adrieng");
+	std::cout << boris << std::endl;
+	std::cout << gaston << std::endl;
 	return ;
 }
 

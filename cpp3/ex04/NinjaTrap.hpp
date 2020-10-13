@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 14:28:26 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/13 17:55:42 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/10/13 19:04:04 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ protected:
 	int	level;
 	int	hit_points;
 	int	energy_points;
+	int	max_energy_points;
 	int	max_hit_points;
 	int	melee_attack_damage;
 	int	range_attack_damage;

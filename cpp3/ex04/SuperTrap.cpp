@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 17:57:24 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/13 18:50:31 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/10/13 19:03:46 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ void	SuperTrap::init_vars(void)
 	this->type = "SUP3R-TP";
 	this->hit_points = this->FragTrap::hit_points;
 	this->energy_points = this->NinjaTrap::energy_points;
-	this->max_hit_points = this->NinjaTrap::max_hit_points;
+	this->max_energy_points = this->NinjaTrap::max_energy_points;
+	this->max_hit_points = this->FragTrap::max_hit_points;
 	this->melee_attack_damage = this->NinjaTrap::melee_attack_damage;
 	this->range_attack_damage = this->FragTrap::range_attack_damage;
 	this->armor_damage_reduction = this->FragTrap::armor_damage_reduction;

@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 14:28:32 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/13 17:55:14 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/10/13 19:05:03 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ NinjaTrap::NinjaTrap(NinjaTrap const &src)
 	this->level = src.level;
 	this->hit_points = src.hit_points;
 	this->energy_points = src.energy_points;
+	this->max_energy_points = src.max_energy_points;
 	this->max_hit_points = src.max_hit_points;
 	this->melee_attack_damage = src.melee_attack_damage;
 	this->range_attack_damage = src.range_attack_damage;
@@ -227,6 +228,11 @@ int		NinjaTrap::getEnergyPoints(void) const
 	return (this->energy_points);
 }
 
+int		NinjaTrap::getMaxEnergyPoints(void) const
+{
+	return (this->max_energy_points);
+}
+
 int		NinjaTrap::getMaxhitpoint(void) const
 {
 	return (this->max_hit_points);
@@ -248,6 +254,7 @@ NinjaTrap	&NinjaTrap::operator=(NinjaTrap const &src)
 	this->level = src.getLevel();
 	this->hit_points = src.getHitPoints();
 	this->energy_points = src.getEnergyPoints();
+	this->max_energy_points = src.getMaxEnergyPoints();
 	this->max_hit_points = src.getHitPoints();
 	this->melee_attack_damage = src.getMeleeattackdamage();
 	this->range_attack_damage = src.getRangedttackdamage();

@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 17:57:09 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/13 18:47:03 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/10/13 19:03:38 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ private:
 	int			level;
 	int			hit_points;
 	int			energy_points;
+	int			max_energy_points;
 	int			max_hit_points;
 	int			melee_attack_damage;
 	int			range_attack_damage;
@@ -67,6 +68,6 @@ private:
 # define ST_CONST_RANGED_ATTACK_DAMAGE CONST_RANGED_ATTACK_DAMAGE;
 # define ST_CONST_ARMOR_DAMAGE_REDUCTION CONST_ARMOR_DAMAGE_REDUCTION;
 
-std::ostream	&operator<<(std::ostream const &o, SuperTrap const &i);
+std::ostream	&operator<<(std::ostream &o, SuperTrap const &i);
 
 #endif
