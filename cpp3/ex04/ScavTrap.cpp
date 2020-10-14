@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/10 06:18:51 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/13 16:28:22 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/10/14 12:25:16 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ ScavTrap::ScavTrap(ScavTrap const &src)
 	this->level = src.level;
 	this->hit_points = src.hit_points;
 	this->energy_points = src.energy_points;
+	this->max_energy_points = src.max_energy_points;
 	this->max_hit_points = src.max_hit_points;
 	this->melee_attack_damage = src.melee_attack_damage;
 	this->range_attack_damage = src.range_attack_damage;
@@ -146,6 +147,7 @@ std::string	ScavTrap::getValues(void) const
 	ss << "level :\t\t\t " << this->level << std::endl;
 	ss << "hit_points :\t\t " << this->hit_points << std::endl;
 	ss << "energy_points :\t\t " << this->energy_points << std::endl;
+	ss << "max_energy_points :\t " << this->max_energy_points << std::endl;
 	ss << "max_hit_points :\t " << this->max_hit_points << std::endl;
 	ss << "melee_attack_damage :\t " << this->melee_attack_damage << std::endl;
 	ss << "range_attack_damage :\t " << this->range_attack_damage << std::endl;
@@ -184,6 +186,11 @@ int		ScavTrap::getEnergyPoints(void) const
 	return (this->energy_points);
 }
 
+int		ScavTrap::getMaxEnergyPoints(void) const
+{
+	return (this->energy_points);
+}
+
 int		ScavTrap::getMaxhitpoint(void) const
 {
 	return (this->max_hit_points);
@@ -205,6 +212,7 @@ ScavTrap	&ScavTrap::operator=(ScavTrap const &src)
 	this->level = src.getLevel();
 	this->hit_points = src.getHitPoints();
 	this->energy_points = src.getEnergyPoints();
+	this->energy_points = src.getMaxEnergyPoints();
 	this->max_hit_points = src.getHitPoints();
 	this->melee_attack_damage = src.getMeleeattackdamage();
 	this->range_attack_damage = src.getRangedttackdamage();

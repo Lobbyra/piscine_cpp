@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/10 19:06:48 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/13 16:17:33 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/10/14 14:33:42 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,16 @@ void	ClapTrap::init_vars(void)
 	this->level = CT_CONST_LEVEL;
 	this->hit_points = CT_CONST_HIT_POINTS;
 	this->energy_points = CT_CONST_ENERGY_POINTS;
+	this->max_energy_points = CT_CONST_MAX_ENERGY_POINTS;
 	this->max_hit_points = CT_CONST_MAX_HIT_POINTS;
 	this->melee_attack_damage = CT_CONST_MELEE_ATTACK_DAMAGE;
 	this->range_attack_damage = CT_CONST_RANGED_ATTACK_DAMAGE;
 	this->armor_damage_reduction = CT_CONST_ARMOR_DAMAGE_REDUCTION;
 }
 
-ClapTrap::ClapTrap(void) : FragTrap("default"), ScavTrap("default")
+ClapTrap::ClapTrap(void) : FragTrap("default"), ScavTrap("default"), name("default")
 {
 	init_vars();
-	this->name = "default";
 	std::cout << COLOR_BLUE_(this->type) << " " << COLOR_BLUE_(this->name) \
 	<< " assemblé et opérationnel !" << std::endl;
 	return ;
@@ -52,6 +52,7 @@ ClapTrap::ClapTrap(ClapTrap const &src) : FragTrap(src.name), ScavTrap(src.name)
 	this->level = src.level;
 	this->hit_points = src.hit_points;
 	this->energy_points = src.energy_points;
+	this->max_energy_points = src.max_energy_points;
 	this->max_hit_points = src.max_hit_points;
 	this->melee_attack_damage = src.melee_attack_damage;
 	this->range_attack_damage = src.range_attack_damage;
@@ -85,22 +86,32 @@ int		ClapTrap::getLevel(void) const
 {
 	return (this->level);
 }
+
 int		ClapTrap::getHitPoints(void) const
 {
 	return (this->hit_points);
 }
+
 int		ClapTrap::getEnergyPoints(void) const
 {
 	return (this->energy_points);
 }
+
+int		ClapTrap::getMaxEnergyPoints(void) const
+{
+	return (this->energy_points);
+}
+
 int		ClapTrap::getMaxhitpoint(void) const
 {
 	return (this->max_hit_points);
 }
+
 int		ClapTrap::getMeleeattackdamage(void) const
 {
 	return (this->melee_attack_damage);
 }
+
 int		ClapTrap::getRangedttackdamage(void) const
 {
 	return (this->range_attack_damage);
@@ -112,6 +123,7 @@ ClapTrap	&ClapTrap::operator=(ClapTrap const &src)
 	this->level = src.getLevel();
 	this->hit_points = src.getHitPoints();
 	this->energy_points = src.getEnergyPoints();
+	this->max_energy_points = src.getMaxEnergyPoints();
 	this->max_hit_points = src.getHitPoints();
 	this->melee_attack_damage = src.getMeleeattackdamage();
 	this->range_attack_damage = src.getRangedttackdamage();
@@ -191,6 +203,7 @@ std::string	ClapTrap::getValues(void) const
 	ss << "level :\t\t\t " << this->level << std::endl;
 	ss << "hit_points :\t\t " << this->hit_points << std::endl;
 	ss << "energy_points :\t\t " << this->energy_points << std::endl;
+	ss << "max_energy_points :\t " << this->max_energy_points << std::endl;
 	ss << "max_hit_points :\t " << this->max_hit_points << std::endl;
 	ss << "melee_attack_damage :\t " << this->melee_attack_damage << std::endl;
 	ss << "range_attack_damage :\t " << this->range_attack_damage << std::endl;

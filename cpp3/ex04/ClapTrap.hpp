@@ -34,6 +34,7 @@ public:
 	int		getLevel(void) const;
 	int		getHitPoints(void) const;
 	int		getEnergyPoints(void) const;
+	int		getMaxEnergyPoints(void) const;
 	int		getMaxhitpoint(void) const;
 	int		getMeleeattackdamage(void) const;
 	int		getRangedttackdamage(void) const;
@@ -52,6 +53,7 @@ private:
 	int			level;
 	int			hit_points;
 	int			energy_points;
+	int			max_energy_points;
 	int			max_hit_points;
 	int			melee_attack_damage;
 	int			range_attack_damage;
@@ -62,12 +64,13 @@ private:
 
 std::ostream	&operator<<(std::ostream &o, ClapTrap const &i);
 
-# define CT_CONST_LEVEL 1;
-# define CT_CONST_HIT_POINTS 100;
-# define CT_CONST_ENERGY_POINTS 50;
-# define CT_CONST_MAX_HIT_POINTS 50;
-# define CT_CONST_MELEE_ATTACK_DAMAGE 30;
-# define CT_CONST_RANGED_ATTACK_DAMAGE 15;
-# define CT_CONST_ARMOR_DAMAGE_REDUCTION 4;
+# define CT_CONST_LEVEL CONST_LEVEL;
+# define CT_CONST_HIT_POINTS CONST_HIT_POINTS;
+# define CT_CONST_ENERGY_POINTS CONST_ENERGY_POINTS;
+# define CT_CONST_MAX_ENERGY_POINTS CONST_MAX_ENERGY_POINTS;
+# define CT_CONST_MAX_HIT_POINTS CONST_MAX_HIT_POINTS;
+# define CT_CONST_MELEE_ATTACK_DAMAGE CONST_MELEE_ATTACK_DAMAGE;
+# define CT_CONST_RANGED_ATTACK_DAMAGE CONST_RANGED_ATTACK_DAMAGE;
+# define CT_CONST_ARMOR_DAMAGE_REDUCTION CONST_ARMOR_DAMAGE_REDUCTION;
 
 #endif

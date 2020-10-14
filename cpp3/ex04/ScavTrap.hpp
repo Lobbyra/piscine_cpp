@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/10 05:59:10 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/13 15:25:20 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/10/14 11:42:51 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ public:
 	int		getLevel(void) const;
 	int		getHitPoints(void) const;
 	int		getEnergyPoints(void) const;
+	int		getMaxEnergyPoints(void) const;
 	int		getMaxhitpoint(void) const;
 	int		getMeleeattackdamage(void) const;
 	int		getRangedttackdamage(void) const;
@@ -54,6 +55,7 @@ protected:
 	int	level;
 	int	hit_points;
 	int	energy_points;
+	int	max_energy_points;
 	int	max_hit_points;
 	int	melee_attack_damage;
 	int	range_attack_damage;

@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 18:43:48 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/13 18:54:04 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/10/14 15:23:47 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -209,14 +209,37 @@ void	supertrap_demo()
 	SuperTrap copy_boris;
 	SuperTrap gaston("gaston");
 
+	// INIT
 	boris.setName("boris");
+	adrieng.setName("adrieng");
+
+	// COMMON ATTACK
 	gaston.meleeAttack("boris");
 	boris.takeDamage(NT_CONST_MELEE_ATTACK_DAMAGE);
 	gaston.rangedAttack("boris");
-	boris.takeDamage(NT_CONST_RANGED_ATTACK_DAMAGE);
-	boris.ninjaShoebox(adrieng);
-	boris.vaulthunter_dot_exe("adrieng");
+	boris.takeDamage(CONST_RANGED_ATTACK_DAMAGE);
+	std::cout << "boris HP = " << boris.getHitPoints() << std::endl;
+
+	// SPECIAL ATTACK
+	if (gaston.vaulthunter_dot_exe("boris") == 0)
+		boris.takeDamage(NT_CONST_MELEE_ATTACK_DAMAGE);
+	if (gaston.ninjaShoebox(adrieng) == 0)
+		adrieng.takeDamage(NT_CONST_MELEE_ATTACK_DAMAGE);
+	if (gaston.vaulthunter_dot_exe("boris") == 0)
+		boris.takeDamage(NT_CONST_MELEE_ATTACK_DAMAGE);
+	if (gaston.ninjaShoebox(adrieng) == 0)
+		adrieng.takeDamage(NT_CONST_MELEE_ATTACK_DAMAGE);
+	if (gaston.vaulthunter_dot_exe("boris") == 0)
+		boris.takeDamage(NT_CONST_MELEE_ATTACK_DAMAGE);
+	gaston.beRepaired(5);
+	if (gaston.vaulthunter_dot_exe("boris") == 0)
+		boris.takeDamage(NT_CONST_MELEE_ATTACK_DAMAGE);
+
+	// RESUME FINAL
+	copy_boris = SuperTrap(boris);
+	copy_boris.setName("copy_boris");
 	std::cout << boris << std::endl;
+	std::cout << copy_boris << std::endl;
 	std::cout << gaston << std::endl;
 	return ;
 }

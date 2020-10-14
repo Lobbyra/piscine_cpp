@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 05:16:25 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/13 15:25:59 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/10/14 14:51:04 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ public:
 	int		getLevel(void) const;
 	int		getHitPoints(void) const;
 	int		getEnergyPoints(void) const;
+	int		getMaxEnergyPoints(void) const;
 	int		getMaxhitpoint(void) const;
 	int		getMeleeattackdamage(void) const;
 	int		getRangedttackdamage(void) const;
@@ -41,6 +42,7 @@ public:
 	void	setName(std::string name);
 	void	takeDamage(unsigned int amount);
 	void	beRepaired(unsigned int amount);
+	void	beRepairedquiet(unsigned int amount);
 	void	meleeAttack(std::string const &target) const;
 	void	rangedAttack(std::string const &target) const;
 	int		vaulthunter_dot_exe(std::string const &target);
@@ -53,6 +55,7 @@ protected:
 	int	level;
 	int	hit_points;
 	int	energy_points;
+	int	max_energy_points;
 	int	max_hit_points;
 	int	melee_attack_damage;
 	int	range_attack_damage;

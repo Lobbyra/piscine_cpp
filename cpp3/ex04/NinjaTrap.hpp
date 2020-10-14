@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 14:28:26 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/13 19:04:04 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/10/14 15:17:50 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ public:
 	void	meleeAttack(std::string const &target) const;
 	void	takeDamage(unsigned int amount);
 	void	beRepaired(unsigned int amount);
+	void	beRepairedquiet(unsigned int amount);
 	void	setName(std::string name);
 
 	std::string getType(void) const;
@@ -40,13 +41,14 @@ public:
 	int		getLevel(void) const;
 	int		getHitPoints(void) const;
 	int		getEnergyPoints(void) const;
+	int		getMaxEnergyPoints(void) const;
 	int		getMaxhitpoint(void) const;
 	int		getMeleeattackdamage(void) const;
 	int		getRangedttackdamage(void) const;
-	void	ninjaShoebox(FragTrap const &target);
-	void	ninjaShoebox(ScavTrap const &target);
-	void	ninjaShoebox(ClapTrap const &target);
-	void	ninjaShoebox(NinjaTrap const &target);
+	int		ninjaShoebox(FragTrap const &target);
+	int		ninjaShoebox(ScavTrap const &target);
+	int		ninjaShoebox(ClapTrap const &target);
+	int		ninjaShoebox(NinjaTrap const &target);
 	std::string getValues(void) const;
 
 protected:
@@ -119,7 +121,7 @@ std::ostream	&operator<<(std::ostream &o, NinjaTrap const &i);
 # define NT_MSG_NOT_ENOUGH_ENERGY									\
 	COLOR_BLUE_(this->type) << " " << this->name << COLOR_RESET << 	\
 	" n'a pas assez d'énergie pour attaquer avec "					\
-	COLOR_BLUE "challengeNewcomer.\n" COLOR_RESET					\
+	COLOR_BLUE "ninjaShoebox.\n" COLOR_RESET					\
 	"        Faites en sorte que ce bout de metal se répare !"
 
 # define NT_MSG_NINJATTACK_FT \
@@ -141,6 +143,5 @@ std::ostream	&operator<<(std::ostream &o, NinjaTrap const &i);
 	COLOR_BLUE_(this->type) << " attaque " << COLOR_BLUE_(target.getType()) <<	\
 	" " << COLOR_BLUE_(target.getName()) << " avec " <<							\
 	"une attaque du livre interdit des sous sols de shibuya."
-
 
 #endif

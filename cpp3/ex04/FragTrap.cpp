@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 05:15:12 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/13 16:22:35 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/10/14 14:51:01 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	FragTrap::init_vars(void)
 	this->level = CONST_LEVEL;
 	this->hit_points = CONST_HIT_POINTS;
 	this->energy_points = CONST_ENERGY_POINTS;
+	this->max_energy_points = CONST_MAX_ENERGY_POINTS;
 	this->max_hit_points = CONST_MAX_HIT_POINTS;
 	this->melee_attack_damage = CONST_MELEE_ATTACK_DAMAGE;
 	this->range_attack_damage = CONST_RANGED_ATTACK_DAMAGE;
@@ -47,6 +48,7 @@ FragTrap::FragTrap(FragTrap const &src)
 	this->level = src.level;
 	this->hit_points = src.hit_points;
 	this->energy_points = src.energy_points;
+	this->max_energy_points = src.max_energy_points;
 	this->max_hit_points = src.max_hit_points;
 	this->melee_attack_damage = src.melee_attack_damage;
 	this->range_attack_damage = src.range_attack_damage;
@@ -111,6 +113,16 @@ void		FragTrap::beRepaired(unsigned int amount)
 	std::cout << MSG_BE_REPAIRED << std::endl;;
 }
 
+void		FragTrap::beRepairedquiet(unsigned int amount)
+{
+	this->hit_points += amount;
+	if (this->hit_points > CONST_MAX_HIT_POINTS)
+		this->hit_points = CONST_MAX_HIT_POINTS;
+	this->energy_points += amount;
+	if (this->energy_points > CONST_MAX_ENERGY_POINTS)
+		this->energy_points = CONST_MAX_ENERGY_POINTS;
+}
+
 int			FragTrap::vaulthunter_dot_exe(std::string const &target)
 {
 	std::string	weapons[] = 
@@ -149,6 +161,7 @@ std::string	FragTrap::getValues(void) const
 	ss << "level :\t\t\t " << this->level << std::endl;
 	ss << "hit_points :\t\t " << this->hit_points << std::endl;
 	ss << "energy_points :\t\t " << this->energy_points << std::endl;
+	ss << "max_energy_points :\t " << this->max_energy_points << std::endl;
 	ss << "max_hit_points :\t " << this->max_hit_points << std::endl;
 	ss << "melee_attack_damage :\t " << this->melee_attack_damage << std::endl;
 	ss << "range_attack_damage :\t " << this->range_attack_damage << std::endl;
@@ -176,22 +189,32 @@ int		FragTrap::getLevel(void) const
 {
 	return (this->level);
 }
+
 int		FragTrap::getHitPoints(void) const
 {
 	return (this->hit_points);
 }
+
 int		FragTrap::getEnergyPoints(void) const
 {
 	return (this->energy_points);
 }
+
+int		FragTrap::getMaxEnergyPoints(void) const
+{
+	return (this->max_energy_points);
+}
+
 int		FragTrap::getMaxhitpoint(void) const
 {
 	return (this->max_hit_points);
 }
+
 int		FragTrap::getMeleeattackdamage(void) const
 {
 	return (this->melee_attack_damage);
 }
+
 int		FragTrap::getRangedttackdamage(void) const
 {
 	return (this->range_attack_damage);
@@ -203,6 +226,7 @@ FragTrap	&FragTrap::operator=(FragTrap const &src)
 	this->level = src.getLevel();
 	this->hit_points = src.getHitPoints();
 	this->energy_points = src.getEnergyPoints();
+	this->max_energy_points = src.getMaxEnergyPoints();
 	this->max_hit_points = src.getHitPoints();
 	this->melee_attack_damage = src.getMeleeattackdamage();
 	this->range_attack_damage = src.getRangedttackdamage();

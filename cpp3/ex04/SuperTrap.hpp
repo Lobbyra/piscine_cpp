@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 17:57:09 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/13 19:03:38 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/10/14 15:16:39 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ public:
 	int		getLevel(void) const;
 	int		getHitPoints(void) const;
 	int		getEnergyPoints(void) const;
+	int		getMaxEnergyPoints(void) const;
 	int		getMaxhitpoint(void) const;
 	int		getMeleeattackdamage(void) const;
 	int		getRangedttackdamage(void) const;
@@ -44,18 +45,20 @@ public:
 	void	meleeAttack(std::string const &target) const;
 	void	rangedAttack(std::string const &target) const;
 
+	int		vaulthunter_dot_exe(std::string const &target);
+
 private:
 
 	std::string	type;
 	std::string	name;
-	int			level;
-	int			hit_points;
-	int			energy_points;
-	int			max_energy_points;
-	int			max_hit_points;
-	int			melee_attack_damage;
-	int			range_attack_damage;
-	int			armor_damage_reduction;
+	int			&level;
+	int			&hit_points;
+	int			&energy_points;
+	int			&max_energy_points;
+	int			&max_hit_points;
+	int			&melee_attack_damage;
+	int			&range_attack_damage;
+	int			&armor_damage_reduction;
 	void		init_vars(void);
 
 };

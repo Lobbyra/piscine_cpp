@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 14:28:32 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/13 19:05:03 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/10/14 15:17:36 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	NinjaTrap::init_vars(void)
 	this->level = NT_CONST_LEVEL;
 	this->hit_points = NT_CONST_HIT_POINTS;
 	this->energy_points = NT_CONST_ENERGY_POINTS;
+	this->max_energy_points = NT_CONST_MAX_ENERGY_POINTS;
 	this->max_hit_points = NT_CONST_MAX_HIT_POINTS;
 	this->melee_attack_damage = NT_CONST_MELEE_ATTACK_DAMAGE;
 	this->range_attack_damage = NT_CONST_RANGED_ATTACK_DAMAGE;
@@ -117,7 +118,17 @@ void		NinjaTrap::beRepaired(unsigned int amount)
 	std::cout << NT_MSG_BE_REPAIRED << std::endl;;
 }
 
-void	NinjaTrap::ninjaShoebox(FragTrap const &target)
+void		NinjaTrap::beRepairedquiet(unsigned int amount)
+{
+	this->hit_points += amount;
+	if (this->hit_points > NT_CONST_MAX_HIT_POINTS)
+		this->hit_points = NT_CONST_MAX_HIT_POINTS;
+	this->energy_points += amount;
+	if (this->energy_points > NT_CONST_MAX_ENERGY_POINTS)
+		this->energy_points = NT_CONST_MAX_ENERGY_POINTS;
+}
+
+int		NinjaTrap::ninjaShoebox(FragTrap const &target)
 {
 	if (this->energy_points >= 25)
 	{
@@ -126,12 +137,14 @@ void	NinjaTrap::ninjaShoebox(FragTrap const &target)
 			this->energy_points = 0;
 		std::cout << NT_MSG_NINJATTACK_FT << std::endl;
 		std::cout << std::endl;
+		return (0);
 	}
 	else
 		std::cout << NT_MSG_NOT_ENOUGH_ENERGY << std::endl << std::endl;
+	return (1);
 }
 
-void	NinjaTrap::ninjaShoebox(ScavTrap const &target)
+int		NinjaTrap::ninjaShoebox(ScavTrap const &target)
 {
 	if (this->energy_points >= 25)
 	{
@@ -140,12 +153,14 @@ void	NinjaTrap::ninjaShoebox(ScavTrap const &target)
 			this->energy_points = 0;
 		std::cout << NT_MSG_NINJATTACK_ST << std::endl;
 		std::cout << std::endl;
+		return (0);
 	}
 	else
 		std::cout << NT_MSG_NOT_ENOUGH_ENERGY << std::endl << std::endl;
+	return (1);
 }
 
-void	NinjaTrap::ninjaShoebox(ClapTrap const &target)
+int		NinjaTrap::ninjaShoebox(ClapTrap const &target)
 {
 	if (this->energy_points >= 25)
 	{
@@ -154,12 +169,14 @@ void	NinjaTrap::ninjaShoebox(ClapTrap const &target)
 			this->energy_points = 0;
 		std::cout << NT_MSG_NINJATTACK_CT << std::endl;
 		std::cout << std::endl;
+		return (0);
 	}
 	else
 		std::cout << NT_MSG_NOT_ENOUGH_ENERGY << std::endl << std::endl;
+	return (1);
 }
 
-void	NinjaTrap::ninjaShoebox(NinjaTrap const &target)
+int		NinjaTrap::ninjaShoebox(NinjaTrap const &target)
 {
 	if (this->energy_points >= 25)
 	{
@@ -168,9 +185,11 @@ void	NinjaTrap::ninjaShoebox(NinjaTrap const &target)
 			this->energy_points = 0;
 		std::cout << NT_MSG_NINJATTACK_NT << std::endl;
 		std::cout << std::endl;
+		return (0);
 	}
 	else
 		std::cout << NT_MSG_NOT_ENOUGH_ENERGY << std::endl << std::endl;
+	return (1);
 }
 
 /*
@@ -190,6 +209,7 @@ std::string	NinjaTrap::getValues(void) const
 	ss << "level :\t\t\t " << this->level << std::endl;
 	ss << "hit_points :\t\t " << this->hit_points << std::endl;
 	ss << "energy_points :\t\t " << this->energy_points << std::endl;
+	ss << "max_energy_points :\t " << this->max_energy_points << std::endl;
 	ss << "max_hit_points :\t " << this->max_hit_points << std::endl;
 	ss << "melee_attack_damage :\t " << this->melee_attack_damage << std::endl;
 	ss << "range_attack_damage :\t " << this->range_attack_damage << std::endl;

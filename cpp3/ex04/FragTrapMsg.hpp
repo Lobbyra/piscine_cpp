@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 13:08:30 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/13 16:21:43 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/10/14 12:05:26 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 
 # define MSG_CONSTRUCTOR_STRING							\
 	"Un " << COLOR_BLUE_(this->type) << " nommé "		\
-	COLOR_BLUE << this->name << COLOR_RESET <<			\
+	COLOR_BLUE << COLOR_BLUE_(this->name) << COLOR_RESET <<			\
 	" viens de sortir de sa boite !"
 
 # define MSG_CONSTRUCTOR_COPY							\
@@ -37,35 +37,35 @@
 # define MSG_DESTRUCTOR		\
 	COLOR_BLUE_(this->type) << " " << COLOR_BLUE_(this->name) << " *s'arrête et tombe*"
 
-# define MSG_RANGED_ATTACK									\
-	COLOR_BLUE_(this->type) << " " << this->name << 		\
-	" attaque " << COLOR_BLUE << target << COLOR_RESET <<	\
-	" à distance, causant " <<								\
-	COLOR_RED << "15" << COLOR_RESET " points de degats !"
+# define MSG_RANGED_ATTACK											\
+	COLOR_BLUE_(this->type) << " " << COLOR_BLUE_(this->name) <<	\
+	" attaque " << COLOR_BLUE << target << COLOR_RESET <<			\
+	" à distance, causant " <<										\
+	COLOR_RED_(this->range_attack_damage) << " points de degats !"
 
-# define MSG_MELEE_ATTACK									\
-	COLOR_BLUE_(this->type) << " " << this->name << 		\
-	" attaque " << COLOR_BLUE << target << COLOR_RESET <<	\
-	" au corps à corps, causant " <<							\
-	COLOR_RED << "25" << COLOR_RESET " points de degats !"
+# define MSG_MELEE_ATTACK											\
+	COLOR_BLUE_(this->type) << " " << COLOR_BLUE_(this->name) <<	\
+	" attaque " << COLOR_BLUE << target << COLOR_RESET <<			\
+	" au corps à corps, causant " <<								\
+	COLOR_RED_(this->melee_attack_damage) << " points de degats !"
 
-# define MSG_TAKE_DAMAGE									\
-	COLOR_BLUE_(this->type) << " " << this->name <<			\
+# define MSG_TAKE_DAMAGE											\
+	COLOR_BLUE_(this->type) << " " << COLOR_BLUE_(this->name) <<	\
 	" à perdu " << COLOR_RED << total_damage << COLOR_RESET " boulon(s)."
 
 # define MSG_BE_REPAIRED													\
-	COLOR_BLUE_(this->type) << " " << this->name << 						\
+	COLOR_BLUE_(this->type) << " " << COLOR_BLUE_(this->name) << 			\
 	" s'est revissé " << COLOR_GREEN << parts[ft_rand(4)] << COLOR_RESET	\
 	" ce qui lui rapporte " << COLOR_GREEN << amount << COLOR_RESET " HP."
 
 # define MSG_VAULTHUNTER_DOT_EXE											\
-	COLOR_BLUE_(this->type) << " " << this->name << 						\
+	COLOR_BLUE_(this->type) << " " << COLOR_BLUE_(this->name) << 			\
 	" attaque " << COLOR_BLUE << target << COLOR_RESET <<					\
 	" avec " << weapons[rand() % 4] <<										\
 	" via " COLOR_BLUE "vaulthunter_dot_exe !" COLOR_RESET
 
 # define MSG_NOT_ENOUGH_ENERGY								\
-	COLOR_BLUE_(this->type) << " " << this->name <<			 	\
+	COLOR_BLUE_(this->type) << " " << COLOR_BLUE_(this->name) <<			\
 	" n'a pas assez d'énergie pour attaquer avec "			\
 	COLOR_BLUE "vaulthunter_dot_exe.\n" COLOR_RESET			\
 	"        Faites en sorte que ce bout de metal se répare !"
