@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 11:12:30 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/16 15:58:16 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/10/16 17:51:38 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ Squad::Squad(Squad const &src)
 
 Squad::~Squad(void)
 {
+	this->free_marines();
 	return ;
 }
 
@@ -44,13 +45,13 @@ Squad::~Squad(void)
 **	/// FUNCTION MEMBER PART \\
 */
 
-ISpaceMarine	**ismcpy(ISpaceMarine **dst, ISpaceMarine **src, int len)
+ISpaceMarine	**Squad::ismcpy(ISpaceMarine **dst)
 {
 	int i = 0;
 
-	while (i < len)
+	while (i < _count)
 	{
-		dst[i] = src[i]->clone();
+		dst[i] = this->getUnit(i);
 		i++;
 	}
 	return (dst);
@@ -62,7 +63,7 @@ void			Squad::free_marines(void)
 
 	while (i < _count)
 		delete _marines[i++];
-	delete [] _marines;
+	delete _marines;
 	_marines = NULL;
 }
 
@@ -86,7 +87,7 @@ int				Squad::getCount(void) const
 
 ISpaceMarine	*Squad::getUnit(int n) const
 {
-	if (n >= _count || n < 0)
+	if (n > _count || n < 0)
 		return (NULL);
 	return (_marines[n]);
 }
@@ -95,18 +96,20 @@ int	Squad::push(ISpaceMarine *marine)
 {
 	ISpaceMarine **temp;
 
-	if (marine && _marines == NULL && this->is_marine_present(marine) == false)
+	if (marine && _marines == NULL)
 	{
+		std::cout << "Marines init !" << std::endl;
 		_marines = new ISpaceMarine*[1];
-		_marines[0] = marine->clone();
+		_marines[0] = marine;
 		_count++;
 	}
 	else if (marine && this->is_marine_present(marine) == false)
 	{
+		std::cout << "Marines add !" << std::endl;
 		temp = new ISpaceMarine*[_count + 1];
-		temp = ismcpy(temp, _marines, _count);
+		temp = ismcpy(temp);
 		temp[_count] = marine->clone();
-		this->free_marines();
+		delete _marines;
 		_marines = temp;
 		_count++;
 	}

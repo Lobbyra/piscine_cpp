@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 15:48:39 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/16 15:58:46 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/10/16 17:22:00 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,3 +33,5 @@ int		main()
 
 	return (0);
 }
+
+__attribute__((destructor)) static void leak() { getchar(); }

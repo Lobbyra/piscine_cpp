@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 15:38:44 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/16 16:04:49 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/10/16 16:50:49 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,11 @@ AssaultTerminator::~AssaultTerminator(void)
 **	/// FUNCTION MEMBER PART \\
 */
 
+ISpaceMarine	*AssaultTerminator::clone(void) const
+{
+	return (new AssaultTerminator(*this));
+}
+
 void	AssaultTerminator::battleCry(void) const
 {
 	std::cout << "This code is unclean. Purify it !" << std::endl;;
@@ -56,6 +61,6 @@ void	AssaultTerminator::meleeAttack(void) const
 */
 AssaultTerminator	&AssaultTerminator::operator=(AssaultTerminator const &src)
 {
-	*this = src;
+	(void)src;
 	return (*this);
 }

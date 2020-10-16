@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 15:32:43 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/16 16:04:32 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/10/16 16:57:22 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,6 @@ void	TacticalMarine::meleeAttack(void) const
 */
 TacticalMarine	&TacticalMarine::operator=(TacticalMarine const &src)
 {
-	*this = src;
+	(void)src;
 	return (*this);
 }
