@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 11:12:30 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/16 17:51:38 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/10/16 17:58:59 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ int	Squad::push(ISpaceMarine *marine)
 		std::cout << "Marines add !" << std::endl;
 		temp = new ISpaceMarine*[_count + 1];
 		temp = ismcpy(temp);
-		temp[_count] = marine->clone();
+		temp[_count] = marine;
 		delete _marines;
 		_marines = temp;
 		_count++;
