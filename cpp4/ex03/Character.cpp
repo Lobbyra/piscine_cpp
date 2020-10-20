@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 11:09:44 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/19 17:55:38 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/10/20 15:12:21 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,12 @@ Character::Character(std::string const &name)
 }
 
 Character::Character(Character const &src)
+: _materias(new AMateria*[4]), _count_materias(src.getCount())
 {
 	_name = src.getName();
-	_count_materias = src.getCount();
 	for (int i = 0; i < 4; i++)
 	{
-		this->_count_materias++;
-		if (_materias[i])
+		if (src.getMateria(i))
 			_materias[i] = src.getMateria(i)->clone();
 		else
 			_materias[i] = NULL;
@@ -94,12 +93,16 @@ std::string const	Character::getMaterias(void) const
 
 void				Character::equip(AMateria *m)
 {
-	if (_count_materias == 4)
+	if (_count_materias == 4 || !m)
 		return ;
-	if (!_materias[_count_materias] && m)
+	for (int i = 0; i < 4; i++)
 	{
-		_materias[_count_materias] = m;
-		_count_materias++;
+		if (!_materias[_count_materias])
+		{
+			_materias[_count_materias] = m;
+			_count_materias++;
+			break ;
+		}
 	}
 }
 
@@ -124,19 +127,16 @@ void				Character::setName(std::string const &name)
 	_name = name;
 }
 
-
 /*
 **	/// OPERATOR OVERLOADS PART \\
 */
 Character	&Character::operator=(Character const &src)
 {
-	std::cout << "AAAAAAAA" << std::endl;
 	_name = src.getName();
 	_count_materias = src.getCount();
 	for (int i = 0; i < 4; i++)
 	{
-		this->_count_materias++;
-		if (_materias[i])
+		if (src.getMateria(i))
 			_materias[i] = src.getMateria(i)->clone();
 		else
 			_materias[i] = NULL;

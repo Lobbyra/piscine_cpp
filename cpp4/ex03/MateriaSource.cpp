@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 11:40:50 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/19 17:18:02 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/10/20 14:26:18 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,11 @@ MateriaSource::MateriaSource(MateriaSource const &src)
 
 MateriaSource::~MateriaSource(void)
 {
-	for (int i = 0; _materias[i]; i++)
-		delete _materias[i];
+	for (int i = 0; i < 4; i++)
+	{
+		if (_materias[i])
+			delete _materias[i];
+	}
 	delete [] _materias;
 	return ;
 }
