@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 15:52:29 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/21 15:16:07 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/10/21 17:36:38 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ Bureaucrat::~Bureaucrat()
 **	/// FUNCTION MEMBER PART \\
 */
 
-unsigned int	Bureaucrat::getGrade(void) const
+int			Bureaucrat::getGrade(void) const
 {
 	return (_grade);
 }
@@ -55,12 +55,12 @@ std::string	Bureaucrat::getName(void) const
 
 const char	*Bureaucrat::GradeTooLowException::what(void) const throw()
 {
-	return ("Grade wanted is too low, grade 150 is the minimum.");
+	return ("grade is too low.");
 }
 
 const char	*Bureaucrat::GradeTooHighException::what(void) const throw()
 {
-	return ("Grade wanted is too high, grade 1 is the maximum.");
+	return ("grade is too high.");
 }
 
 void	Bureaucrat::promote(void)
@@ -80,8 +80,25 @@ void	Bureaucrat::demote(void)
 		throw Bureaucrat::GradeTooLowException();
 	else
 	{
-		std::cout << _name << " is saddly promoted !" << std::endl;
+		std::cout << _name << " is saddly demoted !" << std::endl;
 		_grade++;
+	}
+}
+
+void	Bureaucrat::signForm(Form &form)
+{
+	try
+	{
+		form.beSigned(*this);
+		std::cerr << \
+		_name << " signs " << form.getName() \
+		<< std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << \
+		_name << " cant sign " << form.getName() << " because " << e.what()	\
+		<< std::endl;
 	}
 }
 
