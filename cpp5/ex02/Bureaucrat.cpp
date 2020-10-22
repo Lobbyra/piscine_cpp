@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 15:52:29 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/22 12:20:38 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/10/22 16:34:45 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,6 @@ std::string	Bureaucrat::getName(void) const
 	return (_name);
 }	
 
-
-
 void	Bureaucrat::promote(void)
 {
 	if (_grade == 1)
@@ -91,6 +89,19 @@ void	Bureaucrat::signForm(Form &form)
 		std::cerr << \
 		_name << " cant sign " << form.getName() << " because " << e.what()	\
 		<< std::endl;
+	}
+}
+
+void	Bureaucrat::executeForm(Form const &form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << _name << " executs " << form.getName() << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << _name << " could not execute form : " << e.what() << std::endl;
 	}
 }
 

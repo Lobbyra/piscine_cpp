@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 15:49:28 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/22 12:20:10 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/10/22 14:40:16 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,7 @@ public:
 	void			demote(void);
 
 	void			signForm(Form &form);
-
-
+	void			executeForm(Form const &form);
 
 private:
 

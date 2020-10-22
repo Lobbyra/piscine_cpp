@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/21 15:19:14 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/22 12:20:38 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/10/22 17:33:03 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,11 @@ Form::~Form()
 **	/// FUNCTION MEMBER PART \\
 */
 
+void	Form::root_signing(bool sign_state)
+{
+	_is_signed = sign_state;
+}
+
 std::string const	Form::getName(void) const
 {
 	return (_name);
@@ -64,9 +69,18 @@ int					Form::getGradeNeededExec(void) const
 	return (_grade_needed_exec);
 }
 
+void	Form::execute(Bureaucrat const &executor) const
+{
+	if (this->getGradeNeededExec() < executor.getGrade())
+		throw Form::GradeTooLowException();
+	else if (getIsSigned() == false)
+		throw Form::NotSigned();
+	return ;
+}
+
 void	Form::beSigned(Bureaucrat const &b)
 {
-	if (b.getGrade() < _grade_needed_sign)
+	if (_grade_needed_sign >= b.getGrade())
 		_is_signed = true;
 	else
 		throw Form::GradeTooLowException();
@@ -80,6 +94,11 @@ const char	*Form::GradeTooLowException::what(void) const throw()
 const char	*Form::GradeTooHighException::what(void) const throw()
 {
 	return ("grade is too high.");
+}
+
+const char	*Form::NotSigned::what(void) const throw()
+{
+	return ("form not signed.");
 }
 
 /*
