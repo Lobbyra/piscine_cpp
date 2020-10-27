@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/26 17:36:09 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/26 17:56:22 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/10/27 11:51:27 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static char	*str_rand(int len)
 
 	while (i < len)
 	{
-		while (isalnum(str[i] = ft_rand() % 256))
+		while (isalnum(str[i] = ft_rand() % 256) == 0)
 			;
 		i++;
 	}
@@ -42,10 +42,19 @@ static char	*str_rand(int len)
 void	*serialize(void)
 {
 	int		n;
+	int		*n_ptr;
 	char	*s1;
 	char	*s2;
+	char	*serial = new char[20];
 
 	n = ft_rand();
-	s1 = str_rand();
-	s2 = str_rand();
+	n_ptr = &n;
+	s1 = str_rand(8);
+	s2 = str_rand(8);
+	memcpy(serial, static_cast<void*>(s1), 8);
+	memcpy(serial + 8, reinterpret_cast<void*>(n_ptr), 4);
+	memcpy(serial + 12, static_cast<void*>(s2), 8);
+	delete s1;
+	delete s2;
+	return (static_cast<void*>(serial));
 }

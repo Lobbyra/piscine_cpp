@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/26 17:47:25 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/26 17:52:29 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/10/27 11:08:13 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ struct Data
 	std::string	s2;
 };
 
-void	*serialize(void)
+void	*serialize(void);
 Data	*deserialize(void *raw);
 
 #endif
