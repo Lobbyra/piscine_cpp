@@ -34,3 +34,4 @@ settings.json
 *.out
 *.app
 cpp6/ex02/identify
+cpp7/ex02/array
