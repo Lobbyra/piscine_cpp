@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 12:18:29 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/11/04 15:33:00 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/11/04 16:11:53 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,13 @@
 
 int		main(int argc, char **argv)
 {
-	Span sp = Span(6);
+	Span sp = Span(5);
 
-	sp.addNumber(1);
-	sp.addNumber(42);
-	sp.addNumber(2);
+	sp.addNumber(5);
 	sp.addNumber(3);
-	sp.addNumber(10);
-	sp.addNumber(20);
+	sp.addNumber(17);
+	sp.addNumber(9);
+	sp.addNumber(11);
 	try
 	{
 		sp.addNumber(56);

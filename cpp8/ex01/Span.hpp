@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 10:36:02 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/11/04 15:35:00 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/11/04 16:09:08 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <exception>
 # include <iostream>
 # include <sstream>
+# include <cmath>
 
 class	Span
 {

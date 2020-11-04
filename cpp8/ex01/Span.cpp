@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 10:40:54 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/11/04 15:37:10 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/11/04 16:11:16 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,20 +43,24 @@ Span::~Span()
 
 int		Span::shortestSpan(void) const
 {
-	int s_len = _s.size();
+	std::vector <int>v;
 
-	if (s_len < 2)
+	if (_s.size() < 2)
 		throw FtException("Not enough number to get the shortest number.");
-	return (*min_element(_s.begin(), _s.end()));
+	for (std::vector<int>::const_iterator i = _s.begin(); i + 1 != _s.end(); i++)
+		v.push_back(abs(*i - *(i + 1)));
+	return (*min_element(v.begin(), v.end()));
 }
 
 int		Span::longestSpan(void) const
 {
-	int s_len = _s.size();
+	std::vector <int>v;
 
-	if (s_len < 2)
-		throw FtException("Not enough number to get the longest number.");
-	return (*max_element(_s.begin(), _s.end()));
+	if (_s.size() < 2)
+		throw FtException("Not enough number to get the shortest number.");
+	for (std::vector<int>::const_iterator i = _s.begin(); i + 1 != _s.end(); i++)
+		v.push_back(abs(*i - *(i + 1)));
+	return (*max_element(v.begin(), v.end()));
 }
 
 void	Span::addNumber(int n)
