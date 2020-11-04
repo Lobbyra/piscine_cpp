@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 10:36:02 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/11/04 16:09:08 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/11/04 17:14:34 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,15 @@ public:
 	Span &operator=(Span const &src);
 	virtual ~Span();
 
-	int		shortestSpan(void) const;
-	int		longestSpan(void) const;
+	int		shortestSpan(void);
+	int		longestSpan(void);
 	void	addNumber(int n);
 
 	std::string const str(void) const;
 
 	std::vector<int> const &getNums(void) const;
+	int const	&getSize(void) const;
+	int const	&getNSaved(void) const;
 
 private:
 
@@ -49,7 +51,8 @@ private:
 };
 
 template <typename Iter>
-Span::Span(Iter begin, Iter end) : _s(std::vector<int>(begin, end))
+Span::Span(Iter begin, Iter end)
+: _s(std::vector<int>(begin, end)), _n_saved(&(*end) - &(*begin))
 {
 	return ;
 }

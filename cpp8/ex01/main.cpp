@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 12:18:29 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/11/04 16:11:53 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/11/04 17:22:05 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int		main(int argc, char **argv)
 {
+
 	Span sp = Span(5);
 
 	sp.addNumber(5);
@@ -32,26 +33,45 @@ int		main(int argc, char **argv)
 	std::cout << sp.shortestSpan() << std::endl;
 	std::cout << sp.longestSpan() << std::endl;
 	std::cout << sp << std::endl;
+	std::cout << "------" << std::endl;
 
-	Span sp2 = Span(sp);
-	std::cout << sp2.shortestSpan() << std::endl;
-	std::cout << sp2.longestSpan() << std::endl;
+	Span spa = Span(4);
 
-	int arr[] = {67, 623, 43, 23, 2345, 14, 103, 10};
-	Span sp3 = Span(arr, arr + sizeof(arr) / sizeof(int));
-	std::cout << sp3.shortestSpan() << std::endl;
-	std::cout << sp3.longestSpan() << std::endl;
-
-	Span sp4 = Span(3);
+	spa.addNumber(2);
+	spa.addNumber(7);
+	spa.addNumber(3);
+	spa.addNumber(9);
 	try
 	{
-		sp4.addNumber(3);
-		sp4.addNumber(3);
+		spa.addNumber(56);
 	}
 	catch (std::exception &e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
+	std::cout << spa.shortestSpan() << std::endl;
+	std::cout << spa.longestSpan() << std::endl;
+	std::cout << spa << std::endl;
+	std::cout << "------" << std::endl;
+
+	Span sp2 = Span(sp);
+	std::cout << sp2 << std::endl;
+	std::cout << "------" << std::endl;
+
+	int arr[] = {67, 623, 43, 23, 2345, 14, 103, 10};
+	Span sp3 = Span(arr, arr + sizeof(arr) / sizeof(int));
+	std::cout << sp3.shortestSpan() << std::endl;
+	std::cout << sp3.longestSpan() << std::endl;
+	std::cout << sp3 << std::endl;
+	try
+	{
+		sp3.addNumber(67);
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	std::cout << "------" << std::endl;
 
 	Span sp5 = Span(40000);
 

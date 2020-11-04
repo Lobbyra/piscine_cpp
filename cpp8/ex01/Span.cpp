@@ -6,64 +6,60 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 10:40:54 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/11/04 16:11:16 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/11/04 17:29:28 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "Span.hpp"
-# include "FtException.hpp"
+#include "Span.hpp"
+#include "FtException.hpp"
 
 /*
 **	/// CONSTRUCTORS & DESTRUCTORS PART \\
 */
 Span::Span(void)
 {
-	return ;
+	return;
 }
 
 Span::Span(unsigned int n) : _size(n), _n_saved(0)
 {
-	return ;
+	return;
 }
 
 Span::Span(Span const &src)
 {
 	_s = src.getNums();
+	_size = src.getSize();
+	_n_saved = src.getNSaved();
 	*this = src;
 }
 
 Span::~Span()
 {
-	return ;
+	return;
 }
 
 /*
 **	/// FUNCTION MEMBER PART \\
 */
 
-int		Span::shortestSpan(void) const
+int Span::shortestSpan(void)
 {
-	std::vector <int>v;
-
 	if (_s.size() < 2)
 		throw FtException("Not enough number to get the shortest number.");
-	for (std::vector<int>::const_iterator i = _s.begin(); i + 1 != _s.end(); i++)
-		v.push_back(abs(*i - *(i + 1)));
-	return (*min_element(v.begin(), v.end()));
+	std::sort(_s.begin(), _s.end());
+	return (*(_s.begin() + 1) - *(_s.begin()));
 }
 
-int		Span::longestSpan(void) const
+int Span::longestSpan(void)
 {
-	std::vector <int>v;
-
 	if (_s.size() < 2)
 		throw FtException("Not enough number to get the shortest number.");
-	for (std::vector<int>::const_iterator i = _s.begin(); i + 1 != _s.end(); i++)
-		v.push_back(abs(*i - *(i + 1)));
-	return (*max_element(v.begin(), v.end()));
+	std::sort(_s.begin(), _s.end());
+	return (*std::max_element(_s.begin(), _s.end()) - *(_s.begin()));
 }
 
-void	Span::addNumber(int n)
+void Span::addNumber(int n)
 {
 	if (std::find(_s.begin(), _s.end(), n) != _s.end())
 		throw FtException("Number gived already stored in span.");
@@ -79,18 +75,30 @@ void	Span::addNumber(int n)
 	}
 }
 
-std::vector<int> const	&Span::getNums(void) const
+std::vector<int> const &Span::getNums(void) const
 {
 	return (_s);
 }
 
-std::string const	Span::str(void) const
+int const	&Span::getSize(void) const
 {
+	return (_size);
+}
+
+int const	&Span::getNSaved(void) const
+{
+	return (_n_saved);
+}
+
+std::string const Span::str(void) const
+{
+	int i;
 	std::stringstream ss;
 
 	ss << "{";
-	for (std::vector<int>::const_iterator i = _s.begin(); i != _s.end(); i++)
-		ss << *i << ", ";
+	for (i = 0; i < _n_saved - 1; i++)
+		ss << _s[i] << ", ";
+	ss << _s[i];
 	ss << "}";
 	return (ss.str());
 }
@@ -98,13 +106,13 @@ std::string const	Span::str(void) const
 /*
 **	/// OPERATOR OVERLOADS PART \\
 */
-Span	&Span::operator=(Span const &src)
+Span &Span::operator=(Span const &src)
 {
 	_s = src.getNums();
 	return (*this);
 }
 
-std::ostream	&operator<<(std::ostream &o, Span const &i)
+std::ostream &operator<<(std::ostream &o, Span const &i)
 {
 	o << "Array is : " << i.str();
 	return (o);
