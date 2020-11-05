@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 10:40:54 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/11/04 17:29:28 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/11/05 12:07:32 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,13 @@ Span::~Span()
 
 int Span::shortestSpan(void)
 {
-	if (_s.size() < 2)
-		throw FtException("Not enough number to get the shortest number.");
-	std::sort(_s.begin(), _s.end());
-	return (*(_s.begin() + 1) - *(_s.begin()));
+	// THIS SHIT DONT WORK WITH 1,10,11
+	// Save all span sorted in vector and return the lowest.
+	// ---
+	// if (_s.size() < 2)
+	// 	throw FtException("Not enough number to get the shortest number.");
+	// std::sort(_s.begin(), _s.end());
+	// return (*(_s.begin() + 1) - *(_s.begin()));
 }
 
 int Span::longestSpan(void)

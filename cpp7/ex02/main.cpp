@@ -6,11 +6,11 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 10:21:52 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/28 17:11:56 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/11/05 12:00:43 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Array.tpp"
+#include "Array.hpp"
 
 int		main()
 {
