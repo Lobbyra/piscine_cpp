@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/05 14:19:04 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/06 05:27:40 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/11/06 14:48:38 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	Contact::print_contact(int index)
 		std::cout << buf << "|";
 	}
 	else
-    	std::cout << std::setprecision(10) << std::setfill(' ') << std::setw(10) << this->first_name << "|";
+		std::cout << std::setprecision(10) << std::setfill(' ') << std::setw(10) << this->first_name << "|";
 	if (std::strlen(this->last_name) >= 10)
 	{
 		std::strncpy(buf, this->last_name, 9);
@@ -33,7 +33,7 @@ void	Contact::print_contact(int index)
 		std::cout << buf << "|";
 	}
 	else
-    	std::cout << std::setprecision(10) << std::setfill(' ') << std::setw(10) << this->last_name << "|";
+		std::cout << std::setprecision(10) << std::setfill(' ') << std::setw(10) << this->last_name << "|";
 	if (std::strlen(this->login) >= 10)
 	{
 		std::strncpy(buf, this->login, 9);
@@ -42,7 +42,7 @@ void	Contact::print_contact(int index)
 		std::cout << buf << "|" << std::endl;
 	}
 	else
-    	std::cout << std::setprecision(10) << std::setfill(' ') << std::setw(10) << this->login << "|" << std::endl;
+		std::cout << std::setprecision(10) << std::setfill(' ') << std::setw(10) << this->login << "|" << std::endl;
 }
 
 void	Contact::add_contact(void)
@@ -69,7 +69,8 @@ void	Contact::add_contact(void)
 	std::cin >> this->underware_color;
 	std::cout << "Darkest secret :" << std::endl << "> ";
 	std::cin >> this->darkest_secret;
-	std::cout << this->first_name << "correctement ajoute dans l'annuaire." << std::endl;
+	std::cout << this->first_name << " correctement ajoute dans l'annuire." << std::endl;
+	std::cin.ignore();
 }
 
 void	Contact::print_all(void)

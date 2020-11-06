@@ -6,16 +6,15 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/05 14:17:56 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/06 04:59:01 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/11/06 14:52:52 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "headers.hpp"
 
-static void	search_exec(Contact list[8], int index)
+static void	print_contacts(Contact list[8], int index)
 {
 	int		i = 0;
-	char	buf[256];
 
 	std::cout << "\033[2J\033[1;1H";
 	while (i < index)
@@ -30,14 +29,33 @@ static void	search_exec(Contact list[8], int index)
 		list[i].print_contact(i);
 		i++;
 	}
-	std::cout << "Quel contact souhaitez-vous afficher ?" << std::endl << "> ";
-	std::cin >> buf;
-	if (std::strlen(buf) == 1 && buf[0] - '0' >= 0 && buf[0] - '0' <= index)
-		list[buf[0] - '0'].print_all();
-	else if (std::strlen(buf) == 1)
-		std::cerr << "Index de contact non reconnus." << std::endl;
+}
+
+static void	search_exec(Contact list[8], int index)
+{
+	int		usr_index;
+
+	print_contacts(list, index);
+	std::cout << "Quel contact souhaitez-vous afficher ?" << std::endl;
+	while(true)
+	{
+		std::cout << "> ";
+		if(std::cin >> usr_index)
+		{
+			std::cin.ignore();
+			break ;
+		}
+		else
+		{
+			std::cout<<"L'entrée est invalide vous devez rentrer un chiffre en 0 et 7.\n";
+			std::cin.clear();
+			std::cin.ignore();
+		}
+	}
+	if (index > 0 && usr_index >= 0 && usr_index <= index)
+		list[usr_index].print_all();
 	else
-		std::cerr << "L'index doit etre un chiffre entre 0 et 7 compris." << std::endl;
+		std::cerr << "L'index doit correspondre à un contact sauvegardé." << std::endl;
 }
 
 void	print_welcome(void)
@@ -53,7 +71,7 @@ void	print_welcome(void)
 int		main()
 {
 	Contact		list[8];
-	char		buf[256];
+	std::string buf;
 	int			index = 0;
 	std::string add("ADD");
 	std::string exit("EXIT");
@@ -63,7 +81,7 @@ int		main()
 	while (1)
 	{
 		std::cout << "[ADD | SEARCH | EXIT]> ";
-		std::cin >> buf;
+		std::getline(std::cin, buf);
 		if (add.compare(buf) == 0)
 		{
 			if (index == 8)
@@ -75,8 +93,9 @@ int		main()
 			break ;
 		else if (search.compare(buf) == 0)
 			search_exec(list, index);
-		else
-			std::cerr << "Commande non reconnu donc ignoree." << std::endl;
+		else if (buf.size() > 0)
+			std::cerr << "Commande non reconnu donc ignorée." << std::endl;
+		std::cin.clear();
 	}
 	std::cout << "Goodbye :(" << std::endl;
 	return (0);
