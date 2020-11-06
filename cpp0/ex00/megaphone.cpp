@@ -6,23 +6,17 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/05 11:47:38 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/05 12:23:28 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/11/06 11:43:29 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-void	megaphone(char *str)
+void	megaphone(std::string str)
 {
-	int i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] >= 'a' && str[i] <= 'z')
-			str[i] -= 32;
-		i++;
-	}
+	for (std::string::iterator i = str.begin(); i != str.end(); i++)
+		if (*i >= 'a' && *i <= 'z')
+			*i -= 32;
 	std::cout << str;
 }
 
