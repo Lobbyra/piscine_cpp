@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/07 08:11:31 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/07 09:17:21 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/11/06 16:15:01 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ public:
 	Weapon(std::string c_type);
 
 	std::string const	&getType(void) const;
-	void	setType(std::string type);
+	void				setType(std::string type);
 
 private:
 
