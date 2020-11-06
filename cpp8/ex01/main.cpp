@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 12:18:29 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/11/04 17:22:05 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/11/06 11:12:21 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,24 @@ int		main(int argc, char **argv)
 	std::cout << spa.shortestSpan() << std::endl;
 	std::cout << spa.longestSpan() << std::endl;
 	std::cout << spa << std::endl;
+	std::cout << "------" << std::endl;
+
+	Span span = Span(3);
+
+	span.addNumber(1);
+	span.addNumber(10);
+	span.addNumber(11);
+	try
+	{
+		span.addNumber(56);
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	std::cout << span.shortestSpan() << std::endl;
+	std::cout << span.longestSpan() << std::endl;
+	std::cout << span << std::endl;
 	std::cout << "------" << std::endl;
 
 	Span sp2 = Span(sp);
