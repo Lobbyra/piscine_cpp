@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 11:53:36 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/15 14:24:43 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/11/09 10:02:50 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ std::string	Peon::getName(void) const
 
 void	Peon::polymorphed(void) const
 {
-	std::cout << MSG_PEON_POLYD << std::endl;;
+	std::cout << MSG_PEON_POLYD << std::endl;
 }
 
 /*
