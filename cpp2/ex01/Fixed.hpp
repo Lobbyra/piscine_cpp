@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/08 05:07:07 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/08 15:56:53 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/11/09 09:07:15 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,5 @@ private:
 };
 
 std::ostream	&operator<<(std::ostream &o, Fixed const &i);
-
 
 #endif
