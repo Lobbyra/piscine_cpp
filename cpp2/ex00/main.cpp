@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/08 10:18:22 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/08 10:38:30 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/11/09 09:05:53 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int main(void) {
 	c = b;
 	std::cout << a.getRawBits() << std::endl;
 	std::cout << b.getRawBits() << std::endl;
+	std::cout << c.getRawBits() << std::endl;
+	c.setRawBits(42);
 	std::cout << c.getRawBits() << std::endl;
 	return 0;
 }
