@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 11:12:30 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/16 17:58:59 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/11/10 12:33:10 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,22 +22,16 @@ Squad::Squad(void)
 	return ;
 }
 
-Squad::Squad(Squad const &src)
+Squad::Squad(Squad const &src) : Squad()
 {
-	_count = src.getCount();
-	if (_count > 0)
-	{
-		_marines = new ISpaceMarine*[_count];
-		for (int i = 0; i < _count; i++)
-			_marines[i] = src.getUnit(i);
-	}
-	else
-		_marines = NULL;
+	std::cout << "yufgudyfighsuydifghsuyi" << std::endl;
+	*this = src;
 }
 
 Squad::~Squad(void)
 {
 	this->free_marines();
+	_count = 0;
 	return ;
 }
 
@@ -63,7 +57,7 @@ void			Squad::free_marines(void)
 
 	while (i < _count)
 		delete _marines[i++];
-	delete _marines;
+	delete [] _marines;
 	_marines = NULL;
 }
 
@@ -98,18 +92,16 @@ int	Squad::push(ISpaceMarine *marine)
 
 	if (marine && _marines == NULL)
 	{
-		std::cout << "Marines init !" << std::endl;
 		_marines = new ISpaceMarine*[1];
 		_marines[0] = marine;
 		_count++;
 	}
 	else if (marine && this->is_marine_present(marine) == false)
 	{
-		std::cout << "Marines add !" << std::endl;
 		temp = new ISpaceMarine*[_count + 1];
 		temp = ismcpy(temp);
 		temp[_count] = marine;
-		delete _marines;
+		delete [] _marines;
 		_marines = temp;
 		_count++;
 	}
@@ -121,14 +113,15 @@ int	Squad::push(ISpaceMarine *marine)
 */
 Squad	&Squad::operator=(Squad const &src)
 {
-	_count = src.getCount();
-	if (_count > 0)
+	if (_marines)
 	{
-		_marines = new ISpaceMarine*[_count];
 		for (int i = 0; i < _count; i++)
-			_marines[i] = src.getUnit(i);
+			delete _marines[i];
+		delete [] _marines;
 	}
-	else
-		_marines = NULL;
+	_count = 0;
+	_marines = NULL;
+	for (int i = 0; i < src.getCount(); i++)
+		this->push(src.getUnit(i)->clone());
 	return (*this);
 }

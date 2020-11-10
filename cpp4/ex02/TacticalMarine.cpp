@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 15:32:43 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/16 16:57:22 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/11/10 12:07:47 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ TacticalMarine::~TacticalMarine(void)
 
 ISpaceMarine	*TacticalMarine::clone() const
 {
-	return (new TacticalMarine(*this));
+	return (new TacticalMarine());
 }
 
 void	TacticalMarine::battleCry(void) const

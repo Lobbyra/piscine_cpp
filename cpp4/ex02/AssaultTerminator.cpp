@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 15:38:44 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/16 16:50:49 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/11/10 12:08:12 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ AssaultTerminator::~AssaultTerminator(void)
 
 ISpaceMarine	*AssaultTerminator::clone(void) const
 {
-	return (new AssaultTerminator(*this));
+	return (new AssaultTerminator());
 }
 
 void	AssaultTerminator::battleCry(void) const
