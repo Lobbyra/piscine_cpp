@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/21 16:55:22 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/22 17:51:43 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/11/10 15:54:24 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		main(void)
 	Bureaucrat	delphine("delphine", 7);
 	Bureaucrat	edouard_baer("edouard_baer", 1);
 	ShrubberyCreationForm	maison("maison");
-	RobotomyRequestForm		LeChatDuVoisin("Le chat du voisin");
+	RobotomyRequestForm		LeChatDuVoisin("le chat du voisin");
 	PresidentialPardonForm	VincentLagaf("VincentLagaf");
 
 	gui.signForm(maison);
