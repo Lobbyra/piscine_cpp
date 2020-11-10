@@ -6,11 +6,11 @@
 #    By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/07 11:06:36 by jecaudal          #+#    #+#              #
-#    Updated: 2020/10/07 11:25:14 by jecaudal         ###   ########.fr        #
+#    Updated: 2020/11/10 14:57:50 by jecaudal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	replace
+NAME		=	bin
 
 SRCS		=	main.cpp		\
 				replace.cpp

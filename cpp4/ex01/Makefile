@@ -6,11 +6,11 @@
 #    By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/09 10:08:29 by jecaudal          #+#    #+#              #
-#    Updated: 2020/11/09 10:12:24 by jecaudal         ###   ########.fr        #
+#    Updated: 2020/11/10 14:56:39 by jecaudal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	ex01
+NAME		=	bin
 
 SRCS		=	./main.cpp			\
 				./Enemy.cpp			\

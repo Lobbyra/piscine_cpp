@@ -6,11 +6,11 @@
 #    By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/09 10:26:17 by jecaudal          #+#    #+#              #
-#    Updated: 2020/11/10 12:16:58 by jecaudal         ###   ########.fr        #
+#    Updated: 2020/11/10 14:56:33 by jecaudal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	ex02
+NAME		=	bin
 
 SRCS		=	./main.cpp					\
 				./Squad.cpp					\

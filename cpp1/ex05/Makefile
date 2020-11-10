@@ -6,11 +6,11 @@
 #    By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/06 16:00:46 by jecaudal          #+#    #+#              #
-#    Updated: 2020/11/06 16:01:45 by jecaudal         ###   ########.fr        #
+#    Updated: 2020/11/10 14:57:59 by jecaudal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	ex05
+NAME		=	bin
 
 SRCS		=	main.cpp	\
 				Brain.cpp	\

@@ -6,11 +6,11 @@
 #    By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/05 14:02:20 by jecaudal          #+#    #+#              #
-#    Updated: 2020/10/06 05:03:04 by jecaudal         ###   ########.fr        #
+#    Updated: 2020/11/10 14:58:36 by jecaudal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	phonebook
+NAME		=	bin
 
 SRCS		=	Contact.cpp	\
 				main.cpp

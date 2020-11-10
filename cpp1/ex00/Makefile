@@ -6,11 +6,11 @@
 #    By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/06 15:19:03 by jecaudal          #+#    #+#              #
-#    Updated: 2020/11/06 15:19:23 by jecaudal         ###   ########.fr        #
+#    Updated: 2020/11/10 14:58:30 by jecaudal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	pony
+NAME		=	bin
 
 SRCS		=	main.cpp	\
 				Pony.cpp

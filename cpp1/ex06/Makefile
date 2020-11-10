@@ -6,11 +6,11 @@
 #    By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/06 16:21:33 by jecaudal          #+#    #+#              #
-#    Updated: 2020/11/06 16:22:44 by jecaudal         ###   ########.fr        #
+#    Updated: 2020/11/10 14:57:53 by jecaudal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	ex06
+NAME		=	bin
 
 SRCS		=	main.cpp		\
 				HumanA.cpp		\

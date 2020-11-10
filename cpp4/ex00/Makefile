@@ -6,11 +6,11 @@
 #    By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/09 09:54:37 by jecaudal          #+#    #+#              #
-#    Updated: 2020/11/09 09:55:29 by jecaudal         ###   ########.fr        #
+#    Updated: 2020/11/10 14:56:45 by jecaudal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	ex00
+NAME		=	bin
 
 SRCS		=	main.cpp		\
 				Peon.cpp		\

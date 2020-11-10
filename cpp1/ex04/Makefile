@@ -6,11 +6,11 @@
 #    By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/06 15:39:06 by jecaudal          #+#    #+#              #
-#    Updated: 2020/11/06 15:39:18 by jecaudal         ###   ########.fr        #
+#    Updated: 2020/11/10 14:58:05 by jecaudal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	ex04
+NAME		=	bin
 
 SRCS		=	ex04.cpp
 

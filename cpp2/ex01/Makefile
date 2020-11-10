@@ -6,11 +6,11 @@
 #    By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/09 09:07:30 by jecaudal          #+#    #+#              #
-#    Updated: 2020/11/09 09:07:45 by jecaudal         ###   ########.fr        #
+#    Updated: 2020/11/10 14:57:29 by jecaudal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	ex01
+NAME		=	bin
 
 SRCS		=	main.cpp	\
 				Fixed.cpp
