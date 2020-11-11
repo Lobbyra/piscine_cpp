@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 16:45:34 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/27 17:22:34 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/11/11 15:59:31 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int		main(int argc, char **argv)
 	std::cout << "# string array #" << std::endl;
 	for (int i = 0; i < 5; i++)
 		std::cout << s_arr[i] << std::endl;
-	std::cout << "# --- ITER --- #" << std::endl;
+	std::cout << "# --- ITER CALLING --- #" << std::endl;
 	iter(i_arr, 5, &plus_one);
 	iter(f_arr, 5, &half_divide);
 	iter(s_arr, 5, &capitilizer);
