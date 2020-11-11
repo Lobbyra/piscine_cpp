@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/21 16:55:22 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/23 12:30:42 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/11/11 12:08:17 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,24 @@ int		main(void)
 	std::cout << (ShrubberyCreationForm&)*SCF << std::endl;
 	RRF = thomas.makeForm("robotomy request", "LeChatDuVoisin");
 	std::cout << (RobotomyRequestForm&)*RRF << std::endl;
-	PPF = thomas.makeForm("presidential pardon", "sorry rocketman");
+	PPF = thomas.makeForm("presidential pardon", "rocketman");
 	std::cout << (PresidentialPardonForm&)*PPF << std::endl;
 	FireInter = thomas.makeForm("fire intern", "thomas");
+
+	Bureaucrat	gui("gui", 50);
+	Bureaucrat	delphine("delphine", 7);
+	Bureaucrat	edouard_baer("edouard_baer", 1);
+	gui.signForm(*SCF);
+	gui.executeForm(*SCF);
+	std::cout << std::endl;
+	gui.signForm(*RRF);
+	gui.executeForm(*RRF);
+	delphine.executeForm(*RRF);
+	std::cout << std::endl;
+	gui.signForm(*PPF);
+	delphine.signForm(*PPF);
+	delphine.executeForm(*PPF);
+	edouard_baer.executeForm(*PPF);
 	delete SCF;
 	delete RRF;
 	delete PPF;
