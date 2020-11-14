@@ -6,15 +6,15 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 18:43:48 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/14 15:23:47 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/11/14 13:45:02 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
 #include "ClapTrap.hpp"
-#include "NinjaTrap.hpp"
 #include "SuperTrap.hpp"
+#include "NinjaTrap.hpp"
 
 #define SEPARATOR_FRAGTRAP	\
 	"/**************************************************************************/\n"	\
@@ -26,31 +26,26 @@
 	"/**                    ## ScavTrap TEST ##                               **/\n"	\
 	"/**************************************************************************/\n"
 
-#define SEPARATOR_CLAPTRAP	\
-	"/**************************************************************************/\n"	\
-	"/**                    ## ClapTrap TEST ##                               **/\n"	\
-	"/**************************************************************************/\n"
-
 #define SEPARATOR_NINJATRAP	\
 	"/**************************************************************************/\n"	\
-	"/**                    ## ClapTrap TEST ##                               **/\n"	\
+	"/**                    ## NinjaTrap TEST ##                               **/\n"	\
 	"/**************************************************************************/\n"
 
 #define SEPARATOR_SUPERTRAP	\
 	"/**************************************************************************/\n"	\
-	"/**                    ## ClapTrap TEST ##                               **/\n"	\
+	"/**                    ## SuperTrap TEST ##                               **/\n"	\
 	"/**************************************************************************/\n"
 
 void	fragtrap_demo(void)
 {
 	FragTrap michel;
 	FragTrap nicolas("nicolas");
-	FragTrap copy_nicolas(nicolas);
 
 	std::cout << michel << std::endl;
 	michel.setName("michel");
 	std::cout << michel << std::endl;
 	std::cout << nicolas << std::endl;
+
 	if (michel.vaulthunter_dot_exe("nicolas") == 0)
 		nicolas.takeDamage(25);
 	if (michel.vaulthunter_dot_exe("nicolas") == 0)
@@ -68,35 +63,36 @@ void	fragtrap_demo(void)
 	nicolas.beRepaired(45);
 	std::cout << "Nicolas est a " << nicolas.getHitPoints() << "HP" << std::endl;
 	nicolas.meleeAttack("michel");
-	michel.takeDamage(CONST_MELEE_ATTACK_DAMAGE);
+	michel.takeDamage(FT_CONST_MELEE_ATTACK_DAMAGE);
 	std::cout << "Michel a " << michel.getHitPoints() << " HP." << std::endl << std::endl;
 	nicolas.meleeAttack("michel");
-	michel.takeDamage(CONST_MELEE_ATTACK_DAMAGE);
+	michel.takeDamage(FT_CONST_MELEE_ATTACK_DAMAGE);
 	std::cout << "Michel a " << michel.getHitPoints() << " HP." << std::endl << std::endl;
 	nicolas.meleeAttack("michel");
-	michel.takeDamage(CONST_MELEE_ATTACK_DAMAGE);
+	michel.takeDamage(FT_CONST_MELEE_ATTACK_DAMAGE);
 	std::cout << "Michel a " << michel.getHitPoints() << " HP." << std::endl << std::endl;
 	nicolas.meleeAttack("michel");
-	michel.takeDamage(CONST_MELEE_ATTACK_DAMAGE);
+	michel.takeDamage(FT_CONST_MELEE_ATTACK_DAMAGE);
 	std::cout << "Michel a " << michel.getHitPoints() << " HP." << std::endl << std::endl;
 	nicolas.meleeAttack("michel");
-	michel.takeDamage(CONST_MELEE_ATTACK_DAMAGE);
+	michel.takeDamage(FT_CONST_MELEE_ATTACK_DAMAGE);
 	std::cout << "Michel a " << michel.getHitPoints() << " HP." << std::endl << std::endl;
 	michel.beRepaired(40);
 	nicolas.rangedAttack("michel");
-	michel.takeDamage(CONST_RANGED_ATTACK_DAMAGE);
+	michel.takeDamage(FT_CONST_RANGED_ATTACK_DAMAGE);
 	std::cout << "Michel a " << michel.getHitPoints() << " HP." << std::endl;
 	std::cout << michel << std::endl;
+	FragTrap	cpy1_nicolas(nicolas);
+	FragTrap	cpy2_nicolas;
+	cpy2_nicolas = nicolas;
 	std::cout << nicolas << std::endl;
-	copy_nicolas = FragTrap(nicolas);
-	copy_nicolas.setName("copy_nicolas");
-	std::cout << copy_nicolas << std::endl;
+	std::cout << cpy1_nicolas << std::endl;
+	std::cout << cpy2_nicolas << std::endl;
 }
 
 void	scavtrap_demo(void)
 {
 	ScavTrap	jean_mich;
-	ScavTrap	copy_sebastien;
 	ScavTrap	sebastien("sebastien");
 
 	std::cout << jean_mich << std::endl;
@@ -124,64 +120,21 @@ void	scavtrap_demo(void)
 	sebastien.challengeNewcomer("sebastien");
 	sebastien.challengeNewcomer("sebastien");
 	sebastien.challengeNewcomer("sebastien");
+	sebastien.beRepaired(100);
+	sebastien.challengeNewcomer("sebastien");
 	std::cout << jean_mich << std::endl;
+	ScavTrap	cpy1_sebastien(sebastien);
+	ScavTrap	cpy2_sebastien;
+	cpy2_sebastien = sebastien;
 	std::cout << sebastien << std::endl;
-	copy_sebastien = ScavTrap(sebastien);
-	copy_sebastien.setName("copy_sebastien");
-	std::cout << copy_sebastien << std::endl;
-}
-
-void	claptrap_demo(void)
-{
-	ClapTrap	jean_xavier;
-	ClapTrap	marie("marie");
-	ClapTrap	copy_marie;
-
-	std::cout << jean_xavier << std::endl;
-	jean_xavier.setName("jean_xavier");
-	std::cout << jean_xavier << std::endl;
-	std::cout << marie << std::endl;
-	jean_xavier.meleeAttack("marie");
-	marie.takeDamage(SC_CONST_MELEE_ATTACK_DAMAGE);
-	std::cout << "Marie a " << marie.getHitPoints() << " HP." << std::endl;
-	marie.meleeAttack("Marie");
-	jean_xavier.takeDamage(SC_CONST_MELEE_ATTACK_DAMAGE);
-	std::cout << "Marie a " << jean_xavier.getHitPoints() << " HP." << std::endl;
-	jean_xavier.rangedAttack("marie");
-	marie.takeDamage(SC_CONST_RANGED_ATTACK_DAMAGE);
-	marie.rangedAttack("Marie");
-	jean_xavier.takeDamage(SC_CONST_RANGED_ATTACK_DAMAGE);
-	marie.beRepaired(24);
-	std::cout << "Marie a " << marie.getHitPoints() << " HP." << std::endl;
-	jean_xavier.beRepaired(16);
-	std::cout << "Marie a " << jean_xavier.getHitPoints() << " HP." << std::endl;
-	jean_xavier.challengeNewcomer("Marie");
-	jean_xavier.challengeNewcomer("Marie");
-	jean_xavier.challengeNewcomer("Marie");
-	marie.beRepaired(100);
-	jean_xavier.beRepaired(100);
-	if (jean_xavier.vaulthunter_dot_exe("marie") == 0)
-		marie.takeDamage(25);
-	std::cout << "Marie est a " << marie.getHitPoints() << "HP" << std::endl;
-	if (jean_xavier.vaulthunter_dot_exe("marie") == 0)
-		marie.takeDamage(25);
-	std::cout << "Marie est a " << marie.getHitPoints() << "HP" << std::endl;
-	if (jean_xavier.vaulthunter_dot_exe("marie") == 0)
-		marie.takeDamage(25);
-	std::cout << "Marie est a " << marie.getHitPoints() << "HP" << std::endl;
-	std::cout << jean_xavier << std::endl;
-	std::cout << marie << std::endl;
-	copy_marie = ClapTrap(marie);
-	copy_marie.setName("copy_marie");
-	std::cout << copy_marie << std::endl;
-	return ;
+	std::cout << cpy1_sebastien << std::endl;
+	std::cout << cpy2_sebastien << std::endl;
 }
 
 void	ninjatrap_demo(void)
 {
 	ScavTrap	boris("boris");
 	FragTrap	monique("monique");
-	ClapTrap	hugues("hugues");
 	NinjaTrap	victoire;
 	NinjaTrap	copy_victoire;
 	NinjaTrap	alfred("alfred");
@@ -189,13 +142,15 @@ void	ninjatrap_demo(void)
 	victoire.setName("Victoire");
 	victoire.ninjaShoebox(boris);
 	victoire.ninjaShoebox(monique);
-	victoire.ninjaShoebox(hugues);
 	victoire.beRepaired(100);
 	victoire.ninjaShoebox(alfred);
 	alfred.meleeAttack("victoire");
 	victoire.takeDamage(NT_CONST_MELEE_ATTACK_DAMAGE);
 	alfred.rangedAttack("victoire");
 	victoire.takeDamage(NT_CONST_RANGED_ATTACK_DAMAGE);
+	NinjaTrap	copy_alfred(alfred);
+	std::cout << alfred << std::endl;
+	std::cout << copy_alfred << std::endl;
 	copy_victoire = NinjaTrap(victoire);
 	std::cout << victoire << std::endl;
 	std::cout << copy_victoire << std::endl;
@@ -204,36 +159,39 @@ void	ninjatrap_demo(void)
 
 void	supertrap_demo()
 {
-	ClapTrap adrieng;
-	SuperTrap boris;
-	SuperTrap copy_boris;
-	SuperTrap gaston("gaston");
+	SuperTrap	boris;
+	SuperTrap	copy_boris;
+	SuperTrap	gaston("gaston");
+	ScavTrap	leo("leo");
+	FragTrap	lea("lea");
+	NinjaTrap	zoe("zoe");
 
 	// INIT
 	boris.setName("boris");
-	adrieng.setName("adrieng");
 
 	// COMMON ATTACK
 	gaston.meleeAttack("boris");
-	boris.takeDamage(NT_CONST_MELEE_ATTACK_DAMAGE);
+	boris.takeDamage(SP_CONST_MELEE_ATTACK_DAMAGE);
 	gaston.rangedAttack("boris");
-	boris.takeDamage(CONST_RANGED_ATTACK_DAMAGE);
+	boris.takeDamage(SP_CONST_RANGED_ATTACK_DAMAGE);
 	std::cout << "boris HP = " << boris.getHitPoints() << std::endl;
 
-	// SPECIAL ATTACK
+	// SPECIAL ATTACK FRAG
 	if (gaston.vaulthunter_dot_exe("boris") == 0)
 		boris.takeDamage(NT_CONST_MELEE_ATTACK_DAMAGE);
-	if (gaston.ninjaShoebox(adrieng) == 0)
-		adrieng.takeDamage(NT_CONST_MELEE_ATTACK_DAMAGE);
 	if (gaston.vaulthunter_dot_exe("boris") == 0)
 		boris.takeDamage(NT_CONST_MELEE_ATTACK_DAMAGE);
-	if (gaston.ninjaShoebox(adrieng) == 0)
-		adrieng.takeDamage(NT_CONST_MELEE_ATTACK_DAMAGE);
 	if (gaston.vaulthunter_dot_exe("boris") == 0)
 		boris.takeDamage(NT_CONST_MELEE_ATTACK_DAMAGE);
 	gaston.beRepaired(5);
 	if (gaston.vaulthunter_dot_exe("boris") == 0)
 		boris.takeDamage(NT_CONST_MELEE_ATTACK_DAMAGE);
+
+	// SPECIAL ATTACK FRAG
+	boris.ninjaShoebox(leo);
+	boris.ninjaShoebox(zoe);
+	boris.ninjaShoebox(lea);
+	boris.ninjaShoebox(lea);
 
 	// RESUME FINAL
 	copy_boris = SuperTrap(boris);
@@ -251,10 +209,9 @@ int		main()
 	std::cout << "Quel XTrap veux-tu tester ?" << std::endl;
 	std::cout << "    [1] : ScavTrap" << std::endl;
 	std::cout << "    [2] : FragTrap" << std::endl;
-	std::cout << "    [3] : ClapTrap" << std::endl;
-	std::cout << "    [4] : NinjaTrap" << std::endl;
-	std::cout << "    [5] : SuperTrap" << std::endl;
-	std::cout << "    [6] : TOUS" << std::endl;
+	std::cout << "    [3] : NinjaTrap" << std::endl;
+	std::cout << "    [4] : SuperTrap" << std::endl;
+	std::cout << "    [5] : TOUS" << std::endl;
 	std::cout << "> ";
 	std::cin >> choise;
 
@@ -267,21 +224,16 @@ int		main()
 			fragtrap_demo();
 			break ;
 		case 3:
-			claptrap_demo();
-			break ;
-		case 4:
 			ninjatrap_demo();
 			break ;
-		case 5:
+		case 4:
 			supertrap_demo();
 			break ;
-		case 6:
+		case 5:
 			std::cout << SEPARATOR_FRAGTRAP << std::endl;
 			fragtrap_demo();
 			std::cout << SEPARATOR_SCAVTRAP << std::endl;
 			scavtrap_demo();
-			std::cout << SEPARATOR_CLAPTRAP << std::endl;
-			claptrap_demo();
 			std::cout << SEPARATOR_NINJATRAP << std::endl;
 			ninjatrap_demo();
 			std::cout << SEPARATOR_SUPERTRAP << std::endl;

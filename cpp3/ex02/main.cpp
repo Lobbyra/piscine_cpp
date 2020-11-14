@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 18:43:48 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/13 14:25:39 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/11/14 13:56:37 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,6 @@
 #define SEPARATOR_SCAVTRAP	\
 	"/**************************************************************************/\n"	\
 	"/**                    ## ScavTrap TEST ##                               **/\n"	\
-	"/**************************************************************************/\n"
-
-#define SEPARATOR_CLAPTRAP	\
-	"/**************************************************************************/\n"	\
-	"/**                    ## ClapTrap TEST ##                               **/\n"	\
 	"/**************************************************************************/\n"
 
 void	fragtrap_demo(void)
@@ -56,26 +51,31 @@ void	fragtrap_demo(void)
 	nicolas.beRepaired(45);
 	std::cout << "Nicolas est a " << nicolas.getHitPoints() << "HP" << std::endl;
 	nicolas.meleeAttack("michel");
-	michel.takeDamage(CONST_MELEE_ATTACK_DAMAGE);
+	michel.takeDamage(FT_CONST_MELEE_ATTACK_DAMAGE);
 	std::cout << "Michel a " << michel.getHitPoints() << " HP." << std::endl << std::endl;
 	nicolas.meleeAttack("michel");
-	michel.takeDamage(CONST_MELEE_ATTACK_DAMAGE);
+	michel.takeDamage(FT_CONST_MELEE_ATTACK_DAMAGE);
 	std::cout << "Michel a " << michel.getHitPoints() << " HP." << std::endl << std::endl;
 	nicolas.meleeAttack("michel");
-	michel.takeDamage(CONST_MELEE_ATTACK_DAMAGE);
+	michel.takeDamage(FT_CONST_MELEE_ATTACK_DAMAGE);
 	std::cout << "Michel a " << michel.getHitPoints() << " HP." << std::endl << std::endl;
 	nicolas.meleeAttack("michel");
-	michel.takeDamage(CONST_MELEE_ATTACK_DAMAGE);
+	michel.takeDamage(FT_CONST_MELEE_ATTACK_DAMAGE);
 	std::cout << "Michel a " << michel.getHitPoints() << " HP." << std::endl << std::endl;
 	nicolas.meleeAttack("michel");
-	michel.takeDamage(CONST_MELEE_ATTACK_DAMAGE);
+	michel.takeDamage(FT_CONST_MELEE_ATTACK_DAMAGE);
 	std::cout << "Michel a " << michel.getHitPoints() << " HP." << std::endl << std::endl;
 	michel.beRepaired(40);
 	nicolas.rangedAttack("michel");
-	michel.takeDamage(CONST_RANGED_ATTACK_DAMAGE);
+	michel.takeDamage(FT_CONST_RANGED_ATTACK_DAMAGE);
 	std::cout << "Michel a " << michel.getHitPoints() << " HP." << std::endl;
 	std::cout << michel << std::endl;
+	FragTrap	cpy1_nicolas(nicolas);
+	FragTrap	cpy2_nicolas;
+	cpy2_nicolas = nicolas;
 	std::cout << nicolas << std::endl;
+	std::cout << cpy1_nicolas << std::endl;
+	std::cout << cpy2_nicolas << std::endl;
 }
 
 void	scavtrap_demo(void)
@@ -108,50 +108,15 @@ void	scavtrap_demo(void)
 	sebastien.challengeNewcomer("sebastien");
 	sebastien.challengeNewcomer("sebastien");
 	sebastien.challengeNewcomer("sebastien");
+	sebastien.beRepaired(100);
+	sebastien.challengeNewcomer("sebastien");
 	std::cout << jean_mich << std::endl;
+	ScavTrap	cpy1_sebastien(sebastien);
+	ScavTrap	cpy2_sebastien;
+	cpy2_sebastien = sebastien;
 	std::cout << sebastien << std::endl;
-}
-
-void	claptrap_demo(void)
-{
-	ClapTrap	jean_xavier;
-	ClapTrap	marie("marie");
-
-	std::cout << jean_xavier << std::endl;
-	jean_xavier.setName("jean_xavier");
-	std::cout << jean_xavier << std::endl;
-	std::cout << marie << std::endl;
-	jean_xavier.meleeAttack("marie");
-	marie.takeDamage(SC_CONST_MELEE_ATTACK_DAMAGE);
-	std::cout << "Marie a " << marie.getHitPoints() << " HP." << std::endl;
-	marie.meleeAttack("Marie");
-	jean_xavier.takeDamage(SC_CONST_MELEE_ATTACK_DAMAGE);
-	std::cout << "Marie a " << jean_xavier.getHitPoints() << " HP." << std::endl;
-	jean_xavier.rangedAttack("marie");
-	marie.takeDamage(SC_CONST_RANGED_ATTACK_DAMAGE);
-	marie.rangedAttack("Marie");
-	jean_xavier.takeDamage(SC_CONST_RANGED_ATTACK_DAMAGE);
-	marie.beRepaired(24);
-	std::cout << "Marie a " << marie.getHitPoints() << " HP." << std::endl;
-	jean_xavier.beRepaired(16);
-	std::cout << "Marie a " << jean_xavier.getHitPoints() << " HP." << std::endl;
-	jean_xavier.challengeNewcomer("Marie");
-	jean_xavier.challengeNewcomer("Marie");
-	jean_xavier.challengeNewcomer("Marie");
-	marie.beRepaired(100);
-	jean_xavier.beRepaired(100);
-	if (jean_xavier.vaulthunter_dot_exe("marie") == 0)
-		marie.takeDamage(25);
-	std::cout << "Marie est a " << marie.getHitPoints() << "HP" << std::endl;
-	if (jean_xavier.vaulthunter_dot_exe("marie") == 0)
-		marie.takeDamage(25);
-	std::cout << "Marie est a " << marie.getHitPoints() << "HP" << std::endl;
-	if (jean_xavier.vaulthunter_dot_exe("marie") == 0)
-		marie.takeDamage(25);
-	std::cout << "Marie est a " << marie.getHitPoints() << "HP" << std::endl;
-	std::cout << jean_xavier << std::endl;
-	std::cout << marie << std::endl;
-	return ;
+	std::cout << cpy1_sebastien << std::endl;
+	std::cout << cpy2_sebastien << std::endl;
 }
 
 int		main()
@@ -159,7 +124,8 @@ int		main()
 	int  choise;
 
 	std::cout << "Quel XTrap veux-tu tester ?" << std::endl;
-	std::cout << "    [1] : ScavTrap | [2] : FragTrap | [3] : ClapTrap | [4] : TOUS" << std::endl;
+	std::cout << "    [1] : ScavTrap" << std::endl;
+	std::cout << "    [2] : FragTrap" << std::endl;
 	std::cout << "> ";
 	std::cin >> choise;
 
@@ -170,17 +136,6 @@ int		main()
 			break ;
 		case 2:
 			fragtrap_demo();
-			break ;
-		case 3:
-			claptrap_demo();
-			break ;
-		case 4:
-			std::cout << SEPARATOR_FRAGTRAP << std::endl;
-			fragtrap_demo();
-			std::cout << SEPARATOR_SCAVTRAP << std::endl;
-			scavtrap_demo();
-			std::cout << SEPARATOR_CLAPTRAP << std::endl;
-			claptrap_demo();
 			break ;
 	}
 	return (0);

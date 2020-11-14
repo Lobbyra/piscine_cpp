@@ -6,11 +6,11 @@
 #    By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/09 09:42:46 by jecaudal          #+#    #+#              #
-#    Updated: 2020/11/09 09:43:12 by jecaudal         ###   ########.fr        #
+#    Updated: 2020/11/14 13:59:29 by jecaudal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	ex00
+NAME		=	bin
 
 SRCS		=	main.cpp		\
 				FragTrap.cpp

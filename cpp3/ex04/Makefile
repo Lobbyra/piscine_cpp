@@ -5,18 +5,20 @@
 #                                                     +:+ +:+         +:+      #
 #    By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2020/11/09 09:49:30 by jecaudal          #+#    #+#              #
-#    Updated: 2020/11/14 13:59:35 by jecaudal         ###   ########.fr        #
+#    Created: 2020/11/14 14:01:37 by jecaudal          #+#    #+#              #
+#    Updated: 2020/11/14 14:02:21 by jecaudal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	bin
 
-SRCS		=	main.cpp			\
-				ScavTrap.cpp		\
-				FragTrap.cpp		\
-				GlobalTrap.cpp		\
-				ScavTrapChall.cpp
+SRCS		=	./main.cpp		\
+				./ft_rand.cpp	\
+				./ClapTrap.cpp	\
+				./ScavTrap.cpp	\
+				./FragTrap.cpp	\
+				./NinjaTrap.cpp	\
+				./SuperTrap.cpp
 
 CC			=	g++
 
@@ -28,6 +30,9 @@ all			:	$(NAME)
 
 $(NAME)		:	$(OBJS)
 				$(CC) -o $(NAME) $(CFLAGS) $(OBJS)
+
+san			:	$(OBJS)
+				$(CC) -o $(NAME) -fsanitize=address $(CFLAGS) $(OBJS)
 
 clean		:
 				rm -rf $(OBJS)

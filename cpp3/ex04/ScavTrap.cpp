@@ -5,80 +5,164 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/10 06:18:51 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/14 12:25:16 by jecaudal         ###   ########.fr       */
+/*   Created: 2020/11/13 12:56:15 by jecaudal          #+#    #+#             */
+/*   Updated: 2020/11/14 12:49:48 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "GlobalTrap.hpp"
-#include "ScavTrap.hpp"
+# include "ScavTrap.hpp"
 
-extern int rand_seed;
-
+/*
+**	/// CONSTRUCTORS & DESTRUCTORS PART \\
+*/
 void	ScavTrap::init_vars(void)
 {
 	this->type = "SC4V-TP";
 	this->level = SC_CONST_LEVEL;
 	this->hit_points = SC_CONST_HIT_POINTS;
 	this->energy_points = SC_CONST_ENERGY_POINTS;
+	this->max_energy_points = SC_CONST_MAX_ENERGY_POINTS;
 	this->max_hit_points = SC_CONST_MAX_HIT_POINTS;
 	this->melee_attack_damage = SC_CONST_MELEE_ATTACK_DAMAGE;
 	this->range_attack_damage = SC_CONST_RANGED_ATTACK_DAMAGE;
 	this->armor_damage_reduction = SC_CONST_ARMOR_DAMAGE_REDUCTION;
 }
 
-ScavTrap::ScavTrap(void) : name("default")
+ScavTrap::ScavTrap(void) : ClapTrap()
 {
 	init_vars();
-	std::cout << SC_MSG_CONSTRUCTOR_STRING << std::endl;
+	std::cout << "Un " << COLOR_BLUE_("SC4V-TP") <<		\
+	" viens de sortir de sa boite !" << std::endl;
 	return ;
 }
 
-ScavTrap::ScavTrap(std::string c_name) : name(c_name)
+ScavTrap::ScavTrap(std::string const &name)
+: ClapTrap(name)
 {
 	init_vars();
-	std::cout << SC_MSG_CONSTRUCTOR_STRING << std::endl;
+	std::cout << "Un " << COLOR_BLUE_("SC4V-TP") <<		\
+	" viens de sortir de sa boite !" << std::endl;
 	return ;
 }
 
 ScavTrap::ScavTrap(ScavTrap const &src)
+: ClapTrap(src)
 {
-	this->type = "SC4V-TP";
-	this->name = src.name;
-	this->level = src.level;
-	this->hit_points = src.hit_points;
-	this->energy_points = src.energy_points;
-	this->max_energy_points = src.max_energy_points;
-	this->max_hit_points = src.max_hit_points;
-	this->melee_attack_damage = src.melee_attack_damage;
-	this->range_attack_damage = src.range_attack_damage;
-	this->armor_damage_reduction = src.armor_damage_reduction;
-	std::cout << SC_MSG_CONSTRUCTOR_COPY << std::endl;
-	*this = src;
+	std::cout << "Un " << COLOR_BLUE_("SC4V-TP") <<		\
+	" viens de sortir de sa boite !" << std::endl;
 }
 
-ScavTrap::~ScavTrap(void)
+ScavTrap::~ScavTrap()
 {
-	std::cout << SC_MSG_DESTRUCTOR << std::endl;
+	std::cout << COLOR_BLUE_("SC4V-TP") << " " <<	\
+	COLOR_BLUE_(this->name) << " *s'arrête et tombe*" << std::endl;
 	return ;
 }
 
-void		ScavTrap::setName(std::string name)
+/*
+**	/// FUNCTION MEMBER PART \\
+*/
+void	ScavTrap::chall_rock_paper_scissors(std::string const &target)
 {
-	this->name = name;
+	int			draw_scav;
+	int			draw_target;
+	std::string items[] =
+	{
+		"pierre",
+		"ciseaux",
+		"feuille"
+	};
+
+	while ((draw_scav = ft_rand(3)) == (draw_target = ft_rand(3)))
+		;
+	std::cout << MSG_CHALL_RPC << std::endl;
+	std::cout << MSG_CHALL_RPC_SCAV_DRAW << std::endl;
+	std::cout << MSG_CHALL_RPC_TARGET_DRAW << std::endl;
+	if ((draw_scav == 0 && draw_target == 1) || (draw_scav == 1 && draw_target == 2)
+		|| (draw_scav == 2 && draw_target == 0))
+		std::cout << MSG_CHALL_RPC_SCAV_WIN << std::endl;
+	else
+		std::cout << MSG_CHALL_RPC_SCAV_LOOSE << std::endl;
+	return ;
 }
 
-void		ScavTrap::rangedAttack(std::string const &target) const
+void	ScavTrap::chall_coinflip(std::string const &target)
 {
-	std::cout << SC_MSG_RANGED_ATTACK << std::endl;
+	int draw_coin;
+
+	draw_coin = ft_rand(2);
+	std::cout << MSG_CHALL_COIN << std::endl;
+	if (draw_coin == 0)
+		std::cout << MSG_CHALL_COIN_PILE << std::endl;
+	else
+		std::cout << MSG_CHALL_COIN_FACE << std::endl;
+	std::cout << MSG_CHALL_COIN_ESCAPE << std::endl;
+	std::cout << MSG_CHALL_COIN_TARGET_REACT << std::endl;
+	return ;
 }
 
-void		ScavTrap::meleeAttack(std::string const &target) const
+void	ScavTrap::chall_money(std::string const &target)
 {
-	std::cout << SC_MSG_MELEE_ATTACK << std::endl;
+	int	amount_scav_ask;
+	int	amount_target_have;
+
+	std::cout << MSG_CHALL_MONEY << std::endl;
+	amount_scav_ask = ft_rand(100);
+	std::cout << MSG_CHALL_MONEY_ASK << std::endl;
+	amount_target_have = ft_rand(100);
+	std::cout << MSG_CHALL_MONEY_HAVE << std::endl;
+	if (amount_scav_ask > amount_target_have)
+		std::cout << MSG_CHALL_MONEY_NENOUGH << std::endl;
+	else
+		std::cout << MSG_CHALL_MONEY_ENOUGH << std::endl;
+	return ;
 }
 
-// Challenge are declared in ScavTrapChall.cpp
+void	ScavTrap::chall_ageguessing(std::string const &target)
+{
+	int	age_scav;
+	int	age_guess;
+
+	std::cout << MSG_CHALL_AGE << std::endl;
+	age_scav = ft_rand(5) + 1;
+	age_guess = ft_rand(5) + 1;
+	std::cout << MSG_CHALL_GUESS << std::endl;
+	if (age_guess == age_scav)
+	{
+		std::cout << MSG_CHALL_AGE_SUCCESS << std::endl;
+		return ;
+	}
+	else
+		std::cout << MSG_CHALL_AGE_LOOSE1 << std::endl;
+	age_guess = ft_rand(3) + 1;
+	std::cout << MSG_CHALL_GUESS << std::endl;
+	if (age_guess == age_scav)
+		std::cout << MSG_CHALL_AGE_SUCCESS << std::endl;
+	else
+		std::cout << MSG_CHALL_AGE_LOOSE2 << std::endl;
+	return ;
+}
+
+void	ScavTrap::chall_pinkyfinger(std::string const &target)
+{
+	int draw;
+
+	std::cout << MSG_PINKY << std::endl;
+	std::cout << MSG_PINKY_ASK << std::endl;
+	draw = ft_rand(2);
+	if (draw == 0)
+	{
+		std::cout << MSG_PINKY_WIN << std::endl;
+		std::cout << MSG_PINKY_TARGET_REACT_WIN << std::endl;
+	}
+	else
+	{
+		std::cout << MSG_PINKY_LOOSE << std::endl;
+		std::cout << MSG_PINKY_TARGET_REACT_LOOSE << std::endl;
+	}
+	return ;
+}
+
 void	ScavTrap::challengeNewcomer(std::string const &target)
 {
 	t_ft_chall	challenges[5] =
@@ -103,125 +187,20 @@ void	ScavTrap::challengeNewcomer(std::string const &target)
 		std::cout << SC_MSG_NOT_ENOUGH_ENERGY << std::endl << std::endl;
 }
 
-void		ScavTrap::takeDamage(unsigned int amount)
-{
-	int total_damage;
-
-	total_damage = amount - this->armor_damage_reduction;
-	this->hit_points -= total_damage;
-	if (this->hit_points < 0)
-		this->hit_points = 0;
-	std::cout << SC_MSG_TAKE_DAMAGE << std::endl;
-}
-
-void		ScavTrap::beRepaired(unsigned int amount)
-{
-	std::string parts[] =
-	{
-		"un bras",
-		"une roue",
-		"son oeil",
-		"son antenne"
-	};
-
-	if (rand_seed != time(NULL))
-	{
-		srand(time(NULL));
-		rand_seed = time(NULL);
-	}
-	this->hit_points += amount;
-	if (this->hit_points > SC_CONST_MAX_HIT_POINTS)
-		this->hit_points = SC_CONST_MAX_HIT_POINTS;
-	this->energy_points += amount;
-	if (this->energy_points > SC_CONST_MAX_ENERGY_POINTS)
-		this->energy_points = SC_CONST_MAX_ENERGY_POINTS;
-	std::cout << SC_MSG_BE_REPAIRED << std::endl;;
-}
-
-std::string	ScavTrap::getValues(void) const
-{
-	std::stringstream ss;
-
-	ss << "|---" << std::endl;
-	ss << "name :\t\t\t " << this->name << std::endl;
-	ss << "level :\t\t\t " << this->level << std::endl;
-	ss << "hit_points :\t\t " << this->hit_points << std::endl;
-	ss << "energy_points :\t\t " << this->energy_points << std::endl;
-	ss << "max_energy_points :\t " << this->max_energy_points << std::endl;
-	ss << "max_hit_points :\t " << this->max_hit_points << std::endl;
-	ss << "melee_attack_damage :\t " << this->melee_attack_damage << std::endl;
-	ss << "range_attack_damage :\t " << this->range_attack_damage << std::endl;
-	ss << "armor_damage_reduction : " << this->armor_damage_reduction << std::endl;
-	ss << "|---";
-	return (ss.str());
-}
-
-std::string	ScavTrap::getName(void) const
-{
-	return (this->name);
-}
-
-int		ScavTrap::getArmordamagereduction(void) const
-{
-	return (this->armor_damage_reduction);
-}
-
-std::string	ScavTrap::getType(void) const
-{
-	return (this->type);
-}
-
-int		ScavTrap::getLevel(void) const
-{
-	return (this->level);
-}
-
-int		ScavTrap::getHitPoints(void) const
-{
-	return (this->hit_points);
-}
-
-int		ScavTrap::getEnergyPoints(void) const
-{
-	return (this->energy_points);
-}
-
-int		ScavTrap::getMaxEnergyPoints(void) const
-{
-	return (this->energy_points);
-}
-
-int		ScavTrap::getMaxhitpoint(void) const
-{
-	return (this->max_hit_points);
-}
-
-int		ScavTrap::getMeleeattackdamage(void) const
-{
-	return (this->melee_attack_damage);
-}
-
-int		ScavTrap::getRangedttackdamage(void) const
-{
-	return (this->range_attack_damage);
-}
-
+/*
+**	/// OPERATOR OVERLOADS PART \\
+*/
 ScavTrap	&ScavTrap::operator=(ScavTrap const &src)
 {
+	this->type = src.getType();
 	this->name = src.getName();
 	this->level = src.getLevel();
 	this->hit_points = src.getHitPoints();
 	this->energy_points = src.getEnergyPoints();
-	this->energy_points = src.getMaxEnergyPoints();
-	this->max_hit_points = src.getHitPoints();
+	this->max_energy_points = src.getMaxEnergyPoints();
+	this->max_hit_points = src.getMaxhitpoints();
 	this->melee_attack_damage = src.getMeleeattackdamage();
 	this->range_attack_damage = src.getRangedttackdamage();
 	this->armor_damage_reduction = src.getArmordamagereduction();
 	return (*this);
-}
-
-std::ostream	&operator<<(std::ostream &o, ScavTrap const &i)
-{
-	o << i.getValues();
-	return (o);
 }

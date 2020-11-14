@@ -1,4 +1,3 @@
-
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -6,68 +5,64 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/10 19:03:00 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/12 17:25:19 by jecaudal         ###   ########.fr       */
+/*   Created: 2020/11/12 11:33:15 by jecaudal          #+#    #+#             */
+/*   Updated: 2020/11/14 11:44:05 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CLAPTRAP_HPP
 # define CLAPTRAP_HPP
 
-#include "FragTrap.hpp"
-#include "ScavTrap.hpp"
-#include "GlobalTrap.hpp"
+#include <iostream>
+#include <sstream>
+#include "ClapTrapMsg.hpp"
 
-class	ClapTrap : public FragTrap, public ScavTrap
+int		ft_rand(int mod);
+
+class	ClapTrap
 {
 public:
 
 	ClapTrap(void);
-	ClapTrap(std::string name);
+	ClapTrap(std::string const &name);
 	ClapTrap(ClapTrap const &src);
 	ClapTrap &operator=(ClapTrap const &src);
-	~ClapTrap();
+	virtual ~ClapTrap();
 
+	int			getLevel(void) const;
+	int			getHitPoints(void) const;
+	int			getMaxhitpoints(void) const;
+	int			getEnergyPoints(void) const;
+	int			getMaxEnergyPoints(void) const;
+	int			getMeleeattackdamage(void) const;
+	int			getRangedttackdamage(void) const;
+	int			getArmordamagereduction(void) const;
+	std::string	getName(void) const;
 	std::string	getType(void) const;
-	std::string getName(void) const;
-	int		getArmordamagereduction(void) const;
-	int		getLevel(void) const;
-	int		getHitPoints(void) const;
-	int		getEnergyPoints(void) const;
-	int		getMaxhitpoint(void) const;
-	int		getMeleeattackdamage(void) const;
-	int		getRangedttackdamage(void) const;
+	std::string	getValues(void) const;
 
 	void	setName(std::string name);
 	void	takeDamage(unsigned int amount);
 	void	beRepaired(unsigned int amount);
 	void	meleeAttack(std::string const &target) const;
 	void	rangedAttack(std::string const &target) const;
-	std::string getValues(void) const;
 
-private:
+protected:
 
-	std::string	type;
-	std::string	name;
-	int			level;
-	int			hit_points;
-	int			energy_points;
-	int			max_hit_points;
-	int			melee_attack_damage;
-	int			range_attack_damage;
-	int			armor_damage_reduction;
-	void		init_vars(void);
+	std::string name;
+	std::string type;
+
+	int	level;
+	int	hit_points;
+	int	energy_points;
+	int	max_hit_points;
+	int	max_energy_points;
+	int	melee_attack_damage;
+	int	range_attack_damage;
+	int	armor_damage_reduction;
 
 };
 
 std::ostream	&operator<<(std::ostream &o, ClapTrap const &i);
-
-# define CT_CONST_LEVEL 1;
-# define CT_CONST_HIT_POINTS 100;
-# define CT_CONST_ENERGY_POINTS 50;
-# define CT_CONST_MAX_HIT_POINTS 50;
-# define CT_CONST_MELEE_ATTACK_DAMAGE 30;
-# define CT_CONST_RANGED_ATTACK_DAMAGE 15;
-# define CT_CONST_ARMOR_DAMAGE_REDUCTION 4;
 
 #endif

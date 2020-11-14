@@ -5,61 +5,48 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/09 13:08:30 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/14 11:56:55 by jecaudal         ###   ########.fr       */
+/*   Created: 2020/11/13 14:16:27 by jecaudal          #+#    #+#             */
+/*   Updated: 2020/11/13 14:17:02 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-**	# FRAGTRAPMSG
-**	This file used to store all message displayed in define.
-*/
-
-#ifndef FRAGTRAPMSG_HPP
-# define FRAGTRAPMSG_HPP
-
-/*
-**	# MSG for actions
-*/
+#ifndef SCAVTRAPMSG_HPP
+# define SCAVTRAPMSG_HPP
 
 # define SC_MSG_CONSTRUCTOR								\
 	"Un " << COLOR_BLUE_(this->type) << " est arrivé !"
 
 # define SC_MSG_CONSTRUCTOR_STRING							\
 	"Un " COLOR_BLUE_(this->type) " nommé "	\
-	COLOR_BLUE << COLOR_BLUE_(this->name) << COLOR_RESET <<			\
+	COLOR_BLUE << this->name << COLOR_RESET <<			\
 	" viens de sortir de sa boite !"
-
-# define SC_MSG_CONSTRUCTOR_COPY							\
-	COLOR_BLUE_(this->type) << " créé copié de " <<		\
-	COLOR_BLUE_(src.name) << " et opérationnel !"
 
 # define SC_MSG_DESTRUCTOR								\
 	COLOR_BLUE_(this->type) << " " << COLOR_BLUE_(this->name) << " *s'arrête et tombe*"
 
 # define SC_MSG_RANGED_ATTACK									\
-	COLOR_BLUE_(this->type) << " " << COLOR_BLUE_(this->name) << COLOR_RESET << 	\
+	COLOR_BLUE_(this->type) << " " << this->name << COLOR_RESET << 	\
 	" attaque " << COLOR_BLUE << target << COLOR_RESET <<	\
 	" à distance, causant " <<								\
 	COLOR_RED << "12" << COLOR_RESET " points de degats !"
 
 # define SC_MSG_MELEE_ATTACK									\
-	COLOR_BLUE_(this->type) << " " << COLOR_BLUE_(this->name) << COLOR_RESET << 	\
+	COLOR_BLUE_(this->type) << " " << this->name << COLOR_RESET << 	\
 	" attaque " << COLOR_BLUE << target << COLOR_RESET <<	\
 	" au corps à corps, causant " <<							\
 	COLOR_RED << "17" << COLOR_RESET " points de degats !"
 
 # define SC_MSG_TAKE_DAMAGE											\
-	COLOR_BLUE_(this->type) << " " << COLOR_BLUE_(this->name) << COLOR_RESET << 			\
+	COLOR_BLUE_(this->type) << " " << this->name << COLOR_RESET << 			\
 	" à perdu " << COLOR_RED << total_damage << COLOR_RESET " boulon(s)."
 
 # define SC_MSG_BE_REPAIRED													\
-	COLOR_BLUE_(this->type) << " " << COLOR_BLUE_(this->name) << COLOR_RESET << 					\
+	COLOR_BLUE_(this->type) << " " << this->name << COLOR_RESET << 					\
 	" s'est revissé " << COLOR_GREEN << parts[rand() % 4] << COLOR_RESET	\
 	" ce qui lui rapporte " << COLOR_GREEN << amount << COLOR_RESET " HP."
 
 # define SC_MSG_NOT_ENOUGH_ENERGY								\
-	COLOR_BLUE_(this->type) << " " << COLOR_BLUE_(this->name) << COLOR_RESET << 	\
+	COLOR_BLUE_(this->type) << " " << this->name << COLOR_RESET << 	\
 	" n'a pas assez d'énergie pour attaquer avec "			\
 	COLOR_BLUE "challengeNewcomer.\n" COLOR_RESET			\
 	"        Faites en sorte que ce bout de metal se répare !"
@@ -68,8 +55,8 @@
 **	MSG for challenges
 */
 
-# define MSG_CHALL_ANNOUNCE												\
-	COLOR_BLUE_(this->type) << " " << COLOR_BLUE_(this->name) <<		\
+# define MSG_CHALL_ANNOUNCE			\
+	COLOR_BLUE_(this->type) << " " << this->name <<						\
 	" lance un challenge contre " COLOR_BLUE << target << COLOR_RESET	\
 	" !"
 
@@ -160,31 +147,5 @@
 
 # define MSG_PINKY_TARGET_REACT_LOOSE	\
 	COLOR_BLUE_(target) << " > T'es completement fou c'est pas possible."
-
-
-/*
-**	# FragTrap::getValues() printing define
-*/
-
-# define VALS_LEVEL						\
-	"level:\t\t" << this.level
-
-# define VALS_HIT_POINTS				\
-	"hit_point:\t" << this.hit_point
-
-# define VALS_ENERGY_POINTS				\
-	"hit_point:\t" << this.hit_point
-
-# define VALS_MAX_HIT_POINTS			\
-	"hit_point:\t" << this.hit_point
-
-# define VALS_MELEE_ATTACK_DAMAGE		\
-	"hit_point:\t" << this.hit_point
-
-# define VALS_RANGE_ATTACK_DAMAGE 		\
-	"hit_point:\t" << this.hit_point
-
-# define VALS_ARMOR_DAMAGE_REDUCTION	\
-	"hit_point:\t" << this.hit_point
 
 #endif

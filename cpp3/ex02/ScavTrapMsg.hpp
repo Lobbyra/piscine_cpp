@@ -5,22 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/09 13:08:30 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/13 13:00:35 by jecaudal         ###   ########.fr       */
+/*   Created: 2020/11/13 14:16:27 by jecaudal          #+#    #+#             */
+/*   Updated: 2020/11/13 14:17:02 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-**	# FRAGTRAPMSG
-**	This file used to store all message displayed in define.
-*/
-
-#ifndef FRAGTRAPMSG_HPP
-# define FRAGTRAPMSG_HPP
-
-/*
-**	# MSG for actions
-*/
+#ifndef SCAVTRAPMSG_HPP
+# define SCAVTRAPMSG_HPP
 
 # define SC_MSG_CONSTRUCTOR								\
 	"Un " << COLOR_BLUE_(this->type) << " est arrivé !"
@@ -156,31 +147,5 @@
 
 # define MSG_PINKY_TARGET_REACT_LOOSE	\
 	COLOR_BLUE_(target) << " > T'es completement fou c'est pas possible."
-
-
-/*
-**	# FragTrap::getValues() printing define
-*/
-
-# define VALS_LEVEL						\
-	"level:\t\t" << this.level
-
-# define VALS_HIT_POINTS				\
-	"hit_point:\t" << this.hit_point
-
-# define VALS_ENERGY_POINTS				\
-	"hit_point:\t" << this.hit_point
-
-# define VALS_MAX_HIT_POINTS			\
-	"hit_point:\t" << this.hit_point
-
-# define VALS_MELEE_ATTACK_DAMAGE		\
-	"hit_point:\t" << this.hit_point
-
-# define VALS_RANGE_ATTACK_DAMAGE 		\
-	"hit_point:\t" << this.hit_point
-
-# define VALS_ARMOR_DAMAGE_REDUCTION	\
-	"hit_point:\t" << this.hit_point
 
 #endif
