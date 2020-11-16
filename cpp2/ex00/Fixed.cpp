@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/08 05:07:25 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/08 10:54:10 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/11/16 10:31:04 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ Fixed::~Fixed()
 
 Fixed	&Fixed::operator=(Fixed const &src)
 {
-	std::cout << "Assigment operator called" << std::endl;
+	std::cout << "Assignation operator called" << std::endl;
 	this->raw = src.getRawBits();
 	return (*this);
 }
