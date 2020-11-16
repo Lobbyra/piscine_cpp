@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/05 14:19:04 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/11/06 14:48:38 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/11/16 09:26:45 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +16,27 @@ void	Contact::print_contact(int index)
 {
 	char buf[11];
 	std::cout << "|" << std::setprecision(10) << std::setfill(' ') << std::setw(10) << index << "|";
-	if (std::strlen(this->first_name) >= 10)
+	if (this->first_name.size() >= 10)
 	{
-		std::strncpy(buf, this->first_name, 9);
+		this->first_name.copy(buf, 9, 0);
 		buf[10] = '\0';
 		buf[9] = '.';
 		std::cout << buf << "|";
 	}
 	else
 		std::cout << std::setprecision(10) << std::setfill(' ') << std::setw(10) << this->first_name << "|";
-	if (std::strlen(this->last_name) >= 10)
+	if (this->last_name.size() >= 10)
 	{
-		std::strncpy(buf, this->last_name, 9);
+		this->last_name.copy(buf, 9, 0);
 		buf[10] = '\0';
 		buf[9] = '.';
 		std::cout << buf << "|";
 	}
 	else
 		std::cout << std::setprecision(10) << std::setfill(' ') << std::setw(10) << this->last_name << "|";
-	if (std::strlen(this->login) >= 10)
+	if (this->login.size() >= 10)
 	{
-		std::strncpy(buf, this->login, 9);
+		this->login.copy(buf, 9, 0);
 		buf[10] = '\0';
 		buf[9] = '.';
 		std::cout << buf << "|" << std::endl;
@@ -97,4 +97,59 @@ void	Contact::print_all(void)
 	std::cout << this->underware_color << std::endl;
 	std::cout << "darkest secret : ";
 	std::cout << this->darkest_secret << std::endl;
+}
+
+std::string const &Contact::getLogin(void) const
+{
+	return (this->login);
+}
+
+std::string const &Contact::getNickname(void) const
+{
+	return (this->nickname);
+}
+
+std::string const &Contact::getLast_name(void) const
+{
+	return (this->last_name);
+}
+
+std::string const &Contact::getFirst_name(void) const
+{
+	return (this->first_name);
+}
+
+std::string const &Contact::getPhone_number(void) const
+{
+	return (this->phone_number);
+}
+
+std::string const &Contact::getFavorite_meal(void) const
+{
+	return (this->favorite_meal);
+}
+
+std::string const &Contact::getBirthday_date(void) const
+{
+	return (this->birthday_date);
+}
+
+std::string const &Contact::getEmail_address(void) const
+{
+	return (this->email_address);
+}
+
+std::string const &Contact::getPostal_address(void) const
+{
+	return (this->postal_address);
+}
+
+std::string const &Contact::getDarkest_secret(void) const
+{
+	return (this->darkest_secret);
+}
+
+std::string const &Contact::getUnderware_color(void) const
+{
+	return (this->underware_color);
 }
