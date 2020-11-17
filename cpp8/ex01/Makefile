@@ -6,7 +6,7 @@
 #    By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/04 15:06:49 by jecaudal          #+#    #+#              #
-#    Updated: 2020/11/06 11:22:02 by jecaudal         ###   ########.fr        #
+#    Updated: 2020/11/17 14:03:23 by jecaudal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,12 +20,12 @@ CC			=	g++
 
 OBJS		=	$(SRCS:.cpp=.o)
 
-CFLAGS		+=	-Wall -Werror -Wextra
+CPPFLAGS		+=	-Wall -Werror -Wextra
 
 all			:	$(NAME)
 
 $(NAME)		:	$(OBJS)
-				$(CC) -o $(NAME) $(CFLAGS) $(OBJS)
+				$(CC) -o $(NAME) $(CPPFLAGS) $(OBJS)
 
 clean		:
 				rm -rf $(OBJS)
