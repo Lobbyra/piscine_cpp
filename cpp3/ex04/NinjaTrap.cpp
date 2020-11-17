@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 10:45:33 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/11/14 13:44:04 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/11/17 17:27:51 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,14 @@ NinjaTrap::~NinjaTrap()
 /*
 **	/// FUNCTION MEMBER PART \\
 */
+
+void	NinjaTrap::init_spec(void)
+{
+	this->energy_points = NT_CONST_ENERGY_POINTS;
+	this->max_energy_points = NT_CONST_MAX_ENERGY_POINTS;
+	this->max_hit_points = NT_CONST_MAX_HIT_POINTS;
+	this->melee_attack_damage = NT_CONST_MELEE_ATTACK_DAMAGE;
+}
 
 void	NinjaTrap::ninjaShoebox(FragTrap const &target)
 {

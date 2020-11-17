@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 11:05:34 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/11/14 12:12:15 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/11/17 17:25:52 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ public:
 	FragTrap &operator=(FragTrap const &src);
 	virtual ~FragTrap();
 
+	void	init_spec(void);
 	int		vaulthunter_dot_exe(std::string const &target);
 
 private:

@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 12:19:35 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/11/14 12:49:25 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/11/17 17:25:32 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,14 @@ FragTrap::~FragTrap()
 /*
 **	/// FUNCTION MEMBER PART \\
 */
+
+void	FragTrap::init_spec(void)
+{
+	this->level = FT_CONST_LEVEL;
+	this->hit_points = FT_CONST_HIT_POINTS;
+	this->range_attack_damage = FT_CONST_RANGED_ATTACK_DAMAGE;
+	this->armor_damage_reduction = FT_CONST_ARMOR_DAMAGE_REDUCTION;
+}
 
 int			FragTrap::vaulthunter_dot_exe(std::string const &target)
 {

@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 18:03:45 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/11/14 13:51:13 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/11/17 17:26:07 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ public:
 	void	ninjaShoebox(FragTrap const &target);
 	void	ninjaShoebox(ScavTrap const &target);
 	void	ninjaShoebox(NinjaTrap const &target);
+
+	void	init_spec(void);
 
 private:
 

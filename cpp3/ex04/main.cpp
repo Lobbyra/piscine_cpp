@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 18:43:48 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/11/14 13:45:02 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/11/17 17:29:43 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,6 +168,7 @@ void	supertrap_demo()
 
 	// INIT
 	boris.setName("boris");
+	std::cout << boris << std::endl;
 
 	// COMMON ATTACK
 	gaston.meleeAttack("boris");
