@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/05 14:17:56 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/11/06 14:52:52 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/11/17 11:09:55 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static void	search_exec(Contact list[8], int index)
 			std::cin.ignore();
 		}
 	}
-	if (index > 0 && usr_index >= 0 && usr_index <= index)
+	if (index > 0 && usr_index >= 0 && usr_index < index)
 		list[usr_index].print_all();
 	else
 		std::cerr << "L'index doit correspondre à un contact sauvegardé." << std::endl;
