@@ -20,9 +20,11 @@ int main(void)
 	Fixed c;
 
 	c = b;
+
 	std::cout << a.getRawBits() << std::endl;
 	std::cout << b.getRawBits() << std::endl;
 	std::cout << c.getRawBits() << std::endl;
+	
 	std::cout << "|=====CANONICAL DEMO======|" << std::endl;
 	Fixed cpy_a(a);
 	Fixed cpy_b;
@@ -31,10 +33,6 @@ int main(void)
 	std::cout << a;
 	std::cout << b;
 	std::cout << "|=========================|" << std::endl;
-	std::cout << "|=====PERSONNAL DEMO======|" << std::endl;
 
-	c.setRawBits(42);
-	std::cout << c.getRawBits() << std::endl;
-	std::cout << "|=========================|" << std::endl;
 	return 0;
 }
