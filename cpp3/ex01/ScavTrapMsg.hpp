@@ -37,13 +37,13 @@
 	COLOR_BLUE "SC4V-TP " << this->name << COLOR_RESET << 	\
 	" attaque " << COLOR_BLUE << target << COLOR_RESET <<	\
 	" à distance, causant " <<								\
-	COLOR_RED << "12" << COLOR_RESET " points de degats !"
+	COLOR_RED_(this->range_attack_damage) << " points de degats !"
 
 # define SC_MSG_MELEE_ATTACK									\
 	COLOR_BLUE "SC4V-TP " << this->name << COLOR_RESET << 	\
 	" attaque " << COLOR_BLUE << target << COLOR_RESET <<	\
 	" au corp à corps, causant " <<							\
-	COLOR_RED << "17" << COLOR_RESET " points de degats !"
+	COLOR_RED_(this->melee_attack_damage) << " points de degats !"
 
 # define SC_MSG_TAKE_DAMAGE											\
 	COLOR_BLUE "SC4V-TP " << this->name << COLOR_RESET << 			\
