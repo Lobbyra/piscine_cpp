@@ -22,20 +22,29 @@ int		main()
 	NinjaTrap	victoire;
 	NinjaTrap	copy_victoire;
 	NinjaTrap	alfred("alfred");
+	std::cout << std::endl;
 
 	victoire.setName("Victoire");
+
 	victoire.ninjaShoebox(boris);
 	victoire.ninjaShoebox(monique);
 	victoire.beRepaired(100);
 	victoire.ninjaShoebox(alfred);
+
 	alfred.meleeAttack("victoire");
 	victoire.takeDamage(NT_CONST_MELEE_ATTACK_DAMAGE);
+	std::cout << std::endl;
+
 	alfred.rangedAttack("victoire");
 	victoire.takeDamage(NT_CONST_RANGED_ATTACK_DAMAGE);
+	std::cout << std::endl;
+
 	NinjaTrap	copy_alfred(alfred);
 	std::cout << alfred << std::endl;
 	std::cout << copy_alfred << std::endl;
 	copy_victoire = NinjaTrap(victoire);
+	std::cout << std::endl;
+
 	std::cout << victoire << std::endl;
 	std::cout << copy_victoire << std::endl;
 	return 0;

@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 05:15:12 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/10 10:59:35 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/11/09 09:42:20 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ FragTrap::FragTrap(FragTrap const &src)
 
 FragTrap::~FragTrap(void)
 {
-	std::cout << MSG_DESTRUCTOR << std::endl;
+	std::cout << COLOR_BLUE_("FR4G-TP") << " " <<	\
+	COLOR_BLUE_(this->name) << " *s'arrête et tombe*" << std::endl;
 	return ;
 }
 
@@ -97,10 +98,7 @@ void		FragTrap::beRepaired(unsigned int amount)
 	};
 
 	if (rand_seed != time(NULL))
-	{
 		srand(time(NULL));
-		rand_seed = time(NULL);
-	}
 	this->hit_points += amount;
 	if (this->hit_points > CONST_MAX_HIT_POINTS)
 		this->hit_points = CONST_MAX_HIT_POINTS;

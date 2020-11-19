@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 05:16:25 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/10 10:58:03 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/11/09 09:42:22 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <iostream>
 # include <sstream>
 # include "FragTrapMsg.hpp"
-# include "GlobalTrap.hpp"
 
 class	FragTrap
 {

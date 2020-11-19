@@ -33,6 +33,7 @@ void	fragtrap_demo(void)
 	michel.setName("michel");
 	std::cout << michel << std::endl;
 	std::cout << nicolas << std::endl;
+	std::cout << std::endl;
 
 	if (michel.vaulthunter_dot_exe("nicolas") == 0)
 		nicolas.takeDamage(25);
@@ -44,38 +45,38 @@ void	fragtrap_demo(void)
 		nicolas.takeDamage(25);
 	if (michel.vaulthunter_dot_exe("nicolas") == 0)
 		nicolas.takeDamage(25);
+
 	std::cout << "Michel a " << michel.getEnergyPoints() << " points d'energie." << std::endl;
-	std::cout << "Nicolas est a " << nicolas.getHitPoints() << "HP" << std::endl << std::endl;
 	michel.beRepaired(25);
 	std::cout << "Michel a " << michel.getEnergyPoints() << " points d'energie." << std::endl;
+	std::cout << "Nicolas est a " << nicolas.getHitPoints() << "HP" << std::endl;
 	nicolas.beRepaired(45);
 	std::cout << "Nicolas est a " << nicolas.getHitPoints() << "HP" << std::endl;
+	std::cout << std::endl;
+
 	nicolas.meleeAttack("michel");
 	michel.takeDamage(FT_CONST_MELEE_ATTACK_DAMAGE);
-	std::cout << "Michel a " << michel.getHitPoints() << " HP." << std::endl << std::endl;
+	std::cout << "Michel a " << michel.getHitPoints() << " HP." << std::endl;
+	std::cout << std::endl;
+
 	nicolas.meleeAttack("michel");
 	michel.takeDamage(FT_CONST_MELEE_ATTACK_DAMAGE);
-	std::cout << "Michel a " << michel.getHitPoints() << " HP." << std::endl << std::endl;
+	std::cout << "Michel a " << michel.getHitPoints() << " HP." << std::endl;
 	nicolas.meleeAttack("michel");
 	michel.takeDamage(FT_CONST_MELEE_ATTACK_DAMAGE);
-	std::cout << "Michel a " << michel.getHitPoints() << " HP." << std::endl << std::endl;
+	std::cout << "Michel a " << michel.getHitPoints() << " HP." << std::endl;
 	nicolas.meleeAttack("michel");
 	michel.takeDamage(FT_CONST_MELEE_ATTACK_DAMAGE);
-	std::cout << "Michel a " << michel.getHitPoints() << " HP." << std::endl << std::endl;
+	std::cout << "Michel a " << michel.getHitPoints() << " HP." << std::endl;
 	nicolas.meleeAttack("michel");
 	michel.takeDamage(FT_CONST_MELEE_ATTACK_DAMAGE);
-	std::cout << "Michel a " << michel.getHitPoints() << " HP." << std::endl << std::endl;
+	std::cout << "Michel a " << michel.getHitPoints() << " HP." << std::endl;
+	std::cout << std::endl;
+
 	michel.beRepaired(40);
 	nicolas.rangedAttack("michel");
 	michel.takeDamage(FT_CONST_RANGED_ATTACK_DAMAGE);
 	std::cout << "Michel a " << michel.getHitPoints() << " HP." << std::endl;
-	std::cout << michel << std::endl;
-	FragTrap	cpy1_nicolas(nicolas);
-	FragTrap	cpy2_nicolas;
-	cpy2_nicolas = nicolas;
-	std::cout << nicolas << std::endl;
-	std::cout << cpy1_nicolas << std::endl;
-	std::cout << cpy2_nicolas << std::endl;
 }
 
 void	scavtrap_demo(void)
@@ -85,38 +86,43 @@ void	scavtrap_demo(void)
 
 	std::cout << jean_mich << std::endl;
 	std::cout << sebastien << std::endl;
+	std::cout << std::endl;
+
 	jean_mich.setName("jean_mich");
+
 	jean_mich.meleeAttack("sebastien");
 	sebastien.takeDamage(SC_CONST_MELEE_ATTACK_DAMAGE);
-	std::cout << "Sebastien a " << sebastien.getHitPoints() << " HP." << std::endl << std::endl;
+	std::cout << "Sebastien a " << sebastien.getHitPoints() << " HP." << std::endl;
+	std::cout << std::endl;
+
 	sebastien.meleeAttack("jean-mich");
 	jean_mich.takeDamage(SC_CONST_MELEE_ATTACK_DAMAGE);
-	std::cout << "jean_mich a " << sebastien.getHitPoints() << " HP." << std::endl << std::endl;
+	std::cout << "Jean-mich a " << jean_mich.getHitPoints() << " HP." << std::endl;
+	std::cout << std::endl;
+
 	jean_mich.rangedAttack("sebastien");
 	sebastien.takeDamage(SC_CONST_RANGED_ATTACK_DAMAGE);
-	std::cout << "Sebastien a " << sebastien.getHitPoints() << " HP." << std::endl << std::endl;
 	sebastien.rangedAttack("jean-mich");
 	jean_mich.takeDamage(SC_CONST_RANGED_ATTACK_DAMAGE);
-	std::cout << "Jean_mich a " << sebastien.getHitPoints() << " HP." << std::endl << std::endl;
+	std::cout << "Sebastien a " << sebastien.getHitPoints() << " HP." << std::endl;
+	std::cout << "Jean-mich a " << jean_mich.getHitPoints() << " HP." << std::endl;
+	std::cout << std::endl;
+
 	sebastien.beRepaired(24);
 	std::cout << "Sebastien a " << sebastien.getHitPoints() << " HP." << std::endl;
 	jean_mich.beRepaired(16);
 	std::cout << "Jean-mich a " << jean_mich.getHitPoints() << " HP." << std::endl;
+	std::cout << std::endl;
+
 	jean_mich.challengeNewcomer("sebastien");
 	jean_mich.challengeNewcomer("sebastien");
 	jean_mich.challengeNewcomer("sebastien");
 	sebastien.challengeNewcomer("sebastien");
 	sebastien.challengeNewcomer("sebastien");
 	sebastien.challengeNewcomer("sebastien");
-	sebastien.beRepaired(100);
-	sebastien.challengeNewcomer("sebastien");
+
 	std::cout << jean_mich << std::endl;
-	ScavTrap	cpy1_sebastien(sebastien);
-	ScavTrap	cpy2_sebastien;
-	cpy2_sebastien = sebastien;
 	std::cout << sebastien << std::endl;
-	std::cout << cpy1_sebastien << std::endl;
-	std::cout << cpy2_sebastien << std::endl;
 }
 
 int		main()

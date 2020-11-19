@@ -46,6 +46,8 @@ FragTrap::FragTrap(FragTrap const &src)
 
 FragTrap::~FragTrap(void)
 {
+	std::cout << COLOR_BLUE_("FR4G-TP") << " " <<	\
+	COLOR_BLUE_(this->name) << " *s'arrête et tombe*" << std::endl;
 	return ;
 }
 

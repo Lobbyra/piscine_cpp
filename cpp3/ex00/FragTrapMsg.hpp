@@ -28,6 +28,12 @@
 # define COLOR_GREEN "\033[1;32m"
 # define COLOR_WHITE "\033[1;37m"
 
+# define COLOR_RED_(str) COLOR_RED << str << COLOR_RESET
+# define COLOR_BLUE_(str) COLOR_BLUE << str << COLOR_RESET
+# define COLOR_GREEN_(str) COLOR_GREEN << str << COLOR_RESET
+# define COLOR_WHITE_(str) COLOR_WHITE << str << COLOR_RESET
+# define COLOR_YELLOW_(str) COLOR_YELLOW << str << COLOR_RESET
+
 /*
 **	# MSG for actions
 */
@@ -47,13 +53,13 @@
 	COLOR_BLUE "FR4G-TP " << this->name << COLOR_RESET << 	\
 	" attaque " << COLOR_BLUE << target << COLOR_RESET <<	\
 	" à distance, causant " <<								\
-	COLOR_RED << "15" << COLOR_RESET " points de degats !"
+	COLOR_RED_(this->range_attack_damage) << " points de degats !"
 
 # define MSG_MELEE_ATTACK									\
 	COLOR_BLUE "FR4G-TP " << this->name << COLOR_RESET << 	\
 	" attaque " << COLOR_BLUE << target << COLOR_RESET <<	\
 	" au corp à corps, causant " <<							\
-	COLOR_RED << "25" << COLOR_RESET " points de degats !"
+	COLOR_RED_(this->melee_attack_damage) << " points de degats !"
 
 # define MSG_TAKE_DAMAGE											\
 	COLOR_BLUE "FR4G-TP " << this->name << COLOR_RESET << 			\

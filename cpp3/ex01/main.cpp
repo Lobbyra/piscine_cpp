@@ -19,27 +19,41 @@ void	scavtrap_demo(void)
 
 	std::cout << jean_mich << std::endl;
 	std::cout << sebastien << std::endl;
+	std::cout << std::endl;
+
 	jean_mich.setName("jean_mich");
+
 	jean_mich.meleeAttack("sebastien");
 	sebastien.takeDamage(SC_CONST_MELEE_ATTACK_DAMAGE);
 	std::cout << "Sebastien a " << sebastien.getHitPoints() << " HP." << std::endl;
+	std::cout << std::endl;
+
 	sebastien.meleeAttack("jean-mich");
 	jean_mich.takeDamage(SC_CONST_MELEE_ATTACK_DAMAGE);
 	std::cout << "Jean-mich a " << jean_mich.getHitPoints() << " HP." << std::endl;
+	std::cout << std::endl;
+
 	jean_mich.rangedAttack("sebastien");
 	sebastien.takeDamage(SC_CONST_RANGED_ATTACK_DAMAGE);
 	sebastien.rangedAttack("jean-mich");
 	jean_mich.takeDamage(SC_CONST_RANGED_ATTACK_DAMAGE);
+	std::cout << "Sebastien a " << sebastien.getHitPoints() << " HP." << std::endl;
+	std::cout << "Jean-mich a " << jean_mich.getHitPoints() << " HP." << std::endl;
+	std::cout << std::endl;
+
 	sebastien.beRepaired(24);
 	std::cout << "Sebastien a " << sebastien.getHitPoints() << " HP." << std::endl;
 	jean_mich.beRepaired(16);
 	std::cout << "Jean-mich a " << jean_mich.getHitPoints() << " HP." << std::endl;
+	std::cout << std::endl;
+
 	jean_mich.challengeNewcomer("sebastien");
 	jean_mich.challengeNewcomer("sebastien");
 	jean_mich.challengeNewcomer("sebastien");
 	sebastien.challengeNewcomer("sebastien");
 	sebastien.challengeNewcomer("sebastien");
 	sebastien.challengeNewcomer("sebastien");
+
 	std::cout << jean_mich << std::endl;
 	std::cout << sebastien << std::endl;
 }
