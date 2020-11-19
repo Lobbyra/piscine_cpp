@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 11:53:36 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/11/09 10:02:50 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/11/17 18:31:41 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ Peon::Peon(std::string name) : Victim(name), name(name)
 	return ;
 }
 
-Peon::Peon(Peon const &src)
+Peon::Peon(Peon const &src) : Victim(src)
 {
 	this->name = src.getName();
 	*this = src;

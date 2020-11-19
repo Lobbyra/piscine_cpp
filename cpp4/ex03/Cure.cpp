@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 14:16:10 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/19 17:16:14 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/11/17 18:34:23 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Cure::Cure(void)
 	return ;
 }
 
-Cure::Cure(Cure const &src)
+Cure::Cure(Cure const &src) : AMateria(src)
 {
 	this->setType(src.getType());
 	this->setXP(src.getXP());

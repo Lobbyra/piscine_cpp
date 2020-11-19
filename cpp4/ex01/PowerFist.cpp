@@ -6,7 +6,7 @@
 /*   By: jecaudal <jecaudal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 15:41:01 by jecaudal          #+#    #+#             */
-/*   Updated: 2020/10/15 18:18:34 by jecaudal         ###   ########.fr       */
+/*   Updated: 2020/11/17 18:32:30 by jecaudal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ PowerFist::PowerFist(void)
 	return ;
 }
 
-PowerFist::PowerFist(PowerFist const &src)
+PowerFist::PowerFist(PowerFist const &src) : AWeapon(src)
 {
 	*this = src;
 }
