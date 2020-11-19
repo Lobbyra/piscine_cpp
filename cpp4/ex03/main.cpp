@@ -29,8 +29,10 @@ int		main(void)
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
 	ICharacter* bob = new Character("bob");
+	
 	me->use(0, *bob);
 	me->use(1, *bob);
+
 	delete bob;
 	delete me;
 	delete src;
@@ -51,6 +53,7 @@ int		main(void)
 	AMateria	*tmp4;
 	AMateria	*tmp5;
 	AMateria	*tmp6;
+
 	tmp1 = source->createMateria("cure");
 	moi->equip(tmp1);
 	tmp2 = source->createMateria("ice");
@@ -78,7 +81,7 @@ int		main(void)
 
 	// --------------------------------------------------------------------------
 	((Character*)jerem)->setName("jerem"); // Test du changement de nom
-	std::cout << *((Character*)jerem) << std::endl; // Affichage de jerem pour voir si le nom a changé
+	std::cout << *((Character*)jerem); // Affichage de jerem pour voir si le nom a changé
 	// --------------------------------------------------------------------------
 
 	// --------------------------------------------------------------------------
@@ -93,6 +96,8 @@ int		main(void)
 	jerem->use(3, *jean);
 	jerem->use(3, *jean);
 	jerem->use(3, *jean);
+	std::cout << std::endl;
+
 	std::cout << *((Character*)moi) << std::endl;
 	std::cout << *((Character*)jerem) << std::endl;
 	// --------------------------------------------------------------------------

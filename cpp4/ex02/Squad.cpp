@@ -24,7 +24,6 @@ Squad::Squad(void)
 
 Squad::Squad(Squad const &src) : Squad()
 {
-	std::cout << "yufgudyfighsuydifghsuyi" << std::endl;
 	*this = src;
 }
 

@@ -24,39 +24,62 @@ int		main()
 
 	Enemy	*rs = new RadScorpion();
 	Enemy	*sm = new SuperMutant();
+	std::cout << *rs << std::endl;
 	std::cout << *sm << std::endl;
 
 	AWeapon	*pr = new PlasmaRifle();
 	AWeapon	*pf = new PowerFist();
+	std::cout << std::endl;
 
 	moi->equip(pr);
 	std::cout << *moi << std::endl;
 	moi->equip(pf);
+	std::cout << *moi << std::endl << std::endl;
 
 	moi->attack(rs);
 	std::cout << *rs << std::endl;
 	std::cout << *moi << std::endl;
+	std::cout << std::endl;
+
 	moi->attack(sm);
 	std::cout << *sm << std::endl;
 	std::cout << *moi << std::endl;
+	std::cout << std::endl;
+
 	moi->equip(pr);
 	std::cout << *moi << std::endl;
+	std::cout << std::endl;
+
 	moi->attack(sm);
 	std::cout << *moi << std::endl;
+	std::cout << std::endl;
+
 	moi->attack(sm);
 	std::cout << *moi << std::endl;
+	std::cout << std::endl;
+
 	moi->attack(rs);
 	std::cout << *moi << std::endl;
+	std::cout << std::endl;
+
 	moi->attack(sm);
 	std::cout << *moi << std::endl;
+	std::cout << std::endl;
+
+	moi->attack(sm);
+	std::cout << *moi << std::endl;
+	std::cout << std::endl;
+
 	moi->recoverAP();
 	moi->recoverAP();
 	moi->recoverAP();
 	moi->recoverAP();
 	moi->recoverAP();
 	moi->recoverAP();
+
 	std::cout << *moi << std::endl;
 	moi->attack(sm);
+	std::cout << std::endl;
 
 	delete moi;
 	delete rs;
