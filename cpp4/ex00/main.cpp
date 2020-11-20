@@ -17,16 +17,20 @@
 int		main()
 {
 	Sorcerer robert("Robert", "the Magnificient");
+	std::cout << std::endl;
 
 	Victim	jim("Jimmy");
 	Victim	*fake_victim = new Peon("fake_victim");
 	Peon	joe("Joe");
+	std::cout << std::endl;
 
 	std::cout << robert << jim << joe << *fake_victim;
+	std::cout << std::endl;
 
 	robert.polymorph(jim);
 	robert.polymorph(joe);
 	robert.polymorph(*fake_victim);
+	std::cout << std::endl;
 
 	delete fake_victim;
 	return (0);
