@@ -26,29 +26,50 @@ int		main(void)
 	Form	*FireInter;
 
 	SCF = thomas.makeForm("schrubbery creation", "maison");
-	std::cout << (ShrubberyCreationForm&)*SCF << std::endl;
+	std::cout << std::endl;
+	std::cout << (ShrubberyCreationForm&)*SCF;
+
 	RRF = thomas.makeForm("robotomy request", "LeChatDuVoisin");
-	std::cout << (RobotomyRequestForm&)*RRF << std::endl;
+	std::cout << std::endl;
+	std::cout << (RobotomyRequestForm&)*RRF;
+
 	PPF = thomas.makeForm("presidential pardon", "rocketman");
-	std::cout << (PresidentialPardonForm&)*PPF << std::endl;
+	std::cout << std::endl;
+	std::cout << (PresidentialPardonForm&)*PPF;
+
 	FireInter = thomas.makeForm("fire intern", "thomas");
+	std::cout << std::endl;
 
 	Bureaucrat	gui("gui", 50);
 	Bureaucrat	delphine("delphine", 7);
 	Bureaucrat	edouard_baer("edouard_baer", 1);
+
+	if (FireInter)
+	{
+		// Not executed if Creation failed.
+		// which is expected as good result.
+		gui.signForm(*FireInter);
+		gui.executeForm(*FireInter);
+		std::cout << std::endl;
+	}
+
 	gui.signForm(*SCF);
 	gui.executeForm(*SCF);
 	std::cout << std::endl;
+
 	gui.signForm(*RRF);
 	gui.executeForm(*RRF);
 	delphine.executeForm(*RRF);
 	std::cout << std::endl;
+
 	gui.signForm(*PPF);
 	delphine.signForm(*PPF);
 	delphine.executeForm(*PPF);
 	edouard_baer.executeForm(*PPF);
+
 	delete SCF;
 	delete RRF;
 	delete PPF;
+
 	return (0);
 }

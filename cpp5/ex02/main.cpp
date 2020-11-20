@@ -22,21 +22,27 @@ int		main(void)
 	Bureaucrat	delphine("delphine", 7);
 	Bureaucrat	edouard_baer("edouard_baer", 1);
 	ShrubberyCreationForm	maison("maison");
-	RobotomyRequestForm		LeChatDuVoisin("le chat du voisin");
 	PresidentialPardonForm	VincentLagaf("VincentLagaf");
+	RobotomyRequestForm		LeChatDuVoisin("le chat du voisin");
 
+	std::cout << "/* ShrubberyCreationForm Demo */" << std::endl;
 	gui.signForm(maison);
 	gui.executeForm(maison);
 	std::cout << std::endl;
+
+	std::cout << "/* RobotomyRequestForm Demo */" << std::endl;
 	gui.signForm(LeChatDuVoisin);
 	gui.executeForm(LeChatDuVoisin);
 	delphine.executeForm(LeChatDuVoisin);
 	std::cout << std::endl;
+
+	std::cout << "/* PresidentialPardonForm Demo */" << std::endl;
 	gui.signForm(VincentLagaf);
 	delphine.signForm(VincentLagaf);
 	delphine.executeForm(VincentLagaf);
 	edouard_baer.executeForm(VincentLagaf);
 	std::cout << std::endl;
+
 	std::cout << maison;
 	std::cout << LeChatDuVoisin;
 	std::cout << VincentLagaf;

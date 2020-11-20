@@ -15,20 +15,29 @@
 
 int		main(void)
 {
-	Form	cdd_voiturier("cdd_voiturier", 100, 10);
-	Form	cdi_peintre("cdi_peintre", 10, 5);
 	Bureaucrat	gui("gui", 50);
 	Bureaucrat	delphine("delphine", 5);
+	Form		cdi_peintre("cdi_peintre", 10, 5);
+	Form		cdd_voiturier("cdd_voiturier", 100, 10);
 
-	gui.signForm(cdd_voiturier);
 	gui.signForm(cdi_peintre);
-	std::cout << std::endl << cdd_voiturier;
-	std::cout << cdi_peintre << std::endl;
-	delphine.signForm(cdd_voiturier);
+	gui.signForm(cdd_voiturier);
+	std::cout << std::endl;
+
+	std::cout << cdi_peintre;
+	std::cout << cdd_voiturier;
+	std::cout << std::endl;
+
 	delphine.signForm(cdi_peintre);
-	std::cout << std::endl << cdd_voiturier;
-	std::cout << cdi_peintre << std::endl;
-	std::cout << delphine;
+	delphine.signForm(cdd_voiturier);
+	std::cout << std::endl;
+	
+	std::cout << cdi_peintre;
+	std::cout << cdd_voiturier;
+	std::cout << std::endl;
+
 	std::cout << gui;
+	std::cout << delphine;
+
 	return (0);
 }
